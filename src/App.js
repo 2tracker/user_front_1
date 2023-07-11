@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import './style/globle.css';
 import LoginPage from './page/login';
 import Dashboard from './page/Dashboard';
 
