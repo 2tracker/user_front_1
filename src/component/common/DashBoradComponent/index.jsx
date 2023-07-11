@@ -10,12 +10,12 @@ import Header from "../Header";
 function DashBoradComponent() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [submenuOpen, setSubmenuOpen] = useState(false);
+  const [submenuEventOpen, setSubmenuEventOpen] = useState(false);
+  const [submenuUserOpen, setSubmenuUserOpen] = useState(false);
 
-
-const handleClick =(e) =>{
-console.log(e, ".dvbnjvjvjvhdfjvdvd");
-}
-
+  const handleClick = (e) => {
+    console.log(e, ".dvbnjvjvjvhdfjvdvd");
+  };
 
   return (
     <div>
@@ -46,7 +46,7 @@ console.log(e, ".dvbnjvjvjvhdfjvdvd");
                 return (
                   <>
                     <li
-                      onClick={(e)=> handleClick(index)}
+                      onClick={(e) => handleClick(index)}
                       key={index}
                       className={`text-[#2a3547] text-sm flex items-center gap-x-4 cursor-pointer p-2 rounded-md hover:bg-[#ecf2ff] hover:text-[#5d87ff] ${
                         menudata?.spacing ? "mt-9" : "mt-2"
@@ -66,21 +66,50 @@ console.log(e, ".dvbnjvjvjvhdfjvdvd");
                       <span
                         className={`text-base font-medium flex-1 duration-200 `}
                       >
-                        {sidebarOpen ? menudata?.title : ''}
+                        {sidebarOpen ? menudata?.title : ""}
                       </span>
-                      
-                    </li>
 
-                    {/* ===== Home Sub ======== */}
-                    <ul>
-                      {menudata?.homesubmenu?.map((submenuItem, index) => {
-                        return (
-                          <>
-                            <li
-                              key={index}
-                              className={`text-[#2a3547] text-base font-medium flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${sidebarOpen ? 'px-5' : 'px-1.5' }`}
-                            >
-                              {submenuItem?.icon ? (
+                    {/* ===== Task Sub  Drop button======== */}
+                      {menudata?.submenu && sidebarOpen && (
+                        <BsChevronDown
+                          className={`${submenuOpen && "rotate-180"}`}
+                          onClick={() => {
+                            setSubmenuOpen(!submenuOpen);
+                          }}
+                        />
+                      )}
+
+                      {/* ===== Event Sub Drop button======== */}
+                      {menudata?.submenuEvent && sidebarOpen && (
+                        <BsChevronDown
+                          className={`${submenuEventOpen && "rotate-180"}`}
+                          onClick={() => {
+                            setSubmenuEventOpen(!submenuEventOpen);
+                          }}
+                        />
+                      )}
+                      {menudata?.submenuUser && sidebarOpen && (
+                        <BsChevronDown
+                          className={`${submenuUserOpen && "rotate-180"}`}
+                          onClick={() => {
+                            setSubmenuUserOpen(!submenuUserOpen);
+                          }}
+                        />
+                      )}
+                    </li>
+                    {/* ===== Task Sub ======== */}
+                    {menudata?.submenu && submenuOpen && sidebarOpen && (
+                      <ul>
+                        {menudata?.submenuItems?.map((submenuItem, index) => {
+                          return (
+                            <>
+                              <li
+                                key={index}
+                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                  sidebarOpen ? "px-5" : "px-1.5"
+                                }`}
+                              >
+                                {submenuItem?.icon ? (
                                 <span className="text-2xl block float-left">
                                   {submenuItem?.icon ? (
                                     submenuItem?.icon
@@ -91,27 +120,28 @@ console.log(e, ".dvbnjvjvjvhdfjvdvd");
                               ) : (
                                 ""
                               )}
-                              {sidebarOpen && submenuItem?.title}
-                  
-                            </li>
-                          </>
-                        );
-                      })}
-                    </ul>
+                                {submenuItem?.title}
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul>
+                    )}
 
-                    {/* ======= App ======== */}
-                    <ul>
-                      {menudata?.appsubmenu?.map((submenuItem, index) => {
-                        return (
-                          <>
-                            <li
-                            onClick={(e)=> handleClick(index)}
-                              key={index}
-                              className={`text-[#2a3547] text-base font-medium flex items-center justify-between cursor-pointer p-2 hover:bg-light-blue hover:text-dark-blue hover:text-black rounded-md ${sidebarOpen ? 'px-4' : 'px-1.5' }`}
-                            >
-                             <div className="flex gap-x-4">
-                             {submenuItem?.icon ? (
-                                <span className="text-2xl block float-left ">
+                     {/* ===== Event Sub ======== */}
+                    {menudata?.submenuEvent && submenuEventOpen && sidebarOpen && (
+                      <ul>
+                        {menudata?.EventsubmenuItems?.map((submenuItem, index) => {
+                          return (
+                            <>
+                              <li
+                                key={index}
+                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                  sidebarOpen ? "px-5" : "px-1.5"
+                                }`}
+                              >
+                                {submenuItem?.icon ? (
+                                <span className="text-2xl block float-left">
                                   {submenuItem?.icon ? (
                                     submenuItem?.icon
                                   ) : (
@@ -121,39 +151,57 @@ console.log(e, ".dvbnjvjvjvhdfjvdvd");
                               ) : (
                                 ""
                               )}
-                              {sidebarOpen && submenuItem?.title}
-                             </div>
-                              {submenuItem?.submenublog  && (
-                                <BsChevronDown
-                                  className={`${submenuOpen && "rotate-180"}`}
-                                  onClick={() => {
-                                    setSubmenuOpen(!submenuOpen);
-                                  }}
-                                />
-                              )}
-                            </li>
+                                {submenuItem?.title}
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul>
+                    )}
 
-                            {submenuItem?.submenublog &&
-                              submenuOpen &&
-                              sidebarOpen && (
-                                <ul>
-                                  {submenuItem?.subBlogItems?.map(
-                                    (submenuBlog, index) => {
-                            
-                                      return (
-                                        <>
-                                          <li
-                                            key={index}
-                                            className="text-[#2a3547] text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-white hover:text-black rounded-md px-5"
-                                          >
-                                            {submenuBlog?.title}
-                                          </li>
-                                        </>
-                                      );
-                                    }
+                     {/* ===== User Sub ======== */}
+                    {menudata?.submenuUser && submenuUserOpen && sidebarOpen && (
+                      <ul>
+                        {menudata?.UsersubmenuItems?.map((submenuItem, index) => {
+                          return (
+                            <>
+                              <li
+                                key={index}
+                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                  sidebarOpen ? "px-5" : "px-1.5"
+                                }`}
+                              >
+                                {submenuItem?.icon ? (
+                                <span className="text-2xl block float-left">
+                                  {submenuItem?.icon ? (
+                                    submenuItem?.icon
+                                  ) : (
+                                    <RiDashboardFill />
                                   )}
-                                </ul>
+                                </span>
+                              ) : (
+                                ""
                               )}
+                                {submenuItem?.title}
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul>
+                    )}
+                    
+                    <ul>
+                      {menudata?.homesubmenu?.map((submenuItem, index) => {
+                        return (
+                          <>
+                            <li
+                              key={index}
+                              className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                sidebarOpen ? "px-5" : "px-1.5"
+                              }`}
+                            >
+                              {sidebarOpen && submenuItem?.title}
+                            </li>
                           </>
                         );
                       })}
