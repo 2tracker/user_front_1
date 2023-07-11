@@ -2,50 +2,45 @@ import { BsFillImageFill , BsReverseLayoutTextSidebarReverse , BsPerson } from "
 import { AiOutlineFileText , AiOutlineBarChart , AiOutlineMail , AiOutlineSetting , AiOutlineLogout } from "react-icons/ai";
 
 export const DashboardMenus = [
-  { title: "Home" , 
-      homesubmenu:[
-        {title: "Modern" , icon: <AiOutlineBarChart />},
-        {title: "eCommerce" ,icon: <AiOutlineBarChart />}
-      ]
 
-},
-  { title: "Apps" , 
+
+  {title: "Dashboard" , icon: <AiOutlineBarChart />},
+
+
+  { title: "Tasks" , 
      appsubmenu:[
-        {title: "Modern" , icon: <AiOutlineBarChart />},
-        {title: "eCommerce" ,icon: <AiOutlineBarChart />},
-        {
-          title: "Blog",
-          icon: <BsReverseLayoutTextSidebarReverse />,
-          submenublog: true,
-          subBlogItems: [
-            { title: "Post" },
-            { title: "Details" },
-          ],
-        },
+        {title: "Todo" , icon: <AiOutlineBarChart />},
+        {title: "My issues" ,icon: <AiOutlineBarChart />},
+        {title: "My Reopen issue" ,icon: <AiOutlineBarChart />},
+        {title: "My QA Test Tasks" ,icon: <AiOutlineBarChart />},
+        // {
+        //   title: "Blog",
+        //   icon: <BsReverseLayoutTextSidebarReverse />,
+        //   submenublog: true,
+        //   subBlogItems: [
+        //     { title: "Post" },
+        //     { title: "Details" },
+        //   ],
+        // },
       ]
 
 },
+  { title: "Events" , 
+     appsubmenu:[
+        {title: "Chats" , icon: <AiOutlineBarChart />},
+        
+      ]
+
+},
+
+
+{ title: "Users" , 
+appsubmenu:[
+  {title: "My Profile" , icon: <AiOutlineBarChart />},
   
+  { title: " Logout" , icon: <AiOutlineLogout />},
+]
+},
 
-  { title: "Analytics" , icon: <AiOutlineBarChart /> },
-  { title: "Inbox" , icon: <AiOutlineMail /> },
 
-  { title: "Profile", spacing: true ,icon: <BsPerson />  },
-  { title: "Setting" , icon: <AiOutlineSetting />},
-
-  { title: "Logout" , icon: <AiOutlineLogout />},
-  { title: "Analytics" , icon: <AiOutlineBarChart /> },
-  { title: "Inbox" , icon: <AiOutlineMail /> },
-
-  { title: "Profile", spacing: true ,icon: <BsPerson />  },
-  { title: "Setting" , icon: <AiOutlineSetting />},
-
-  { title: "Logout" , icon: <AiOutlineLogout />},
-  { title: "Analytics" , icon: <AiOutlineBarChart /> },
-  { title: "Inbox" , icon: <AiOutlineMail /> },
-
-  { title: "Profile", spacing: true ,icon: <BsPerson />  },
-  { title: "Setting" , icon: <AiOutlineSetting />},
-
-  { title: "Logout" , icon: <AiOutlineLogout />},
 ];

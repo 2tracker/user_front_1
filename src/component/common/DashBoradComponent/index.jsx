@@ -11,6 +11,12 @@ function DashBoradComponent() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [submenuOpen, setSubmenuOpen] = useState(false);
 
+
+const handleClick =(e) =>{
+console.log(e, ".dvbnjvjvjvhdfjvdvd");
+}
+
+
   return (
     <div>
       <>
@@ -40,8 +46,9 @@ function DashBoradComponent() {
                 return (
                   <>
                     <li
+                      onClick={(e)=> handleClick(index)}
                       key={index}
-                      className={`text-[#2a3547] text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-white hover:text-black rounded-md  ${
+                      className={`text-[#2a3547] text-sm flex items-center gap-x-4 cursor-pointer p-2 rounded-md hover:bg-[#ecf2ff] hover:text-[#5d87ff] ${
                         menudata?.spacing ? "mt-9" : "mt-2"
                       }`}
                     >
@@ -59,7 +66,7 @@ function DashBoradComponent() {
                       <span
                         className={`text-base font-medium flex-1 duration-200 `}
                       >
-                        {sidebarOpen ? menudata?.title : '...'}
+                        {sidebarOpen ? menudata?.title : ''}
                       </span>
                       
                     </li>
@@ -71,7 +78,7 @@ function DashBoradComponent() {
                           <>
                             <li
                               key={index}
-                              className={`text-[#2a3547] text-base font-medium flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] hover:text-black rounded-md  ${sidebarOpen ? 'px-5' : 'px-1.5' }`}
+                              className={`text-[#2a3547] text-base font-medium flex items-center gap-x-4 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${sidebarOpen ? 'px-5' : 'px-1.5' }`}
                             >
                               {submenuItem?.icon ? (
                                 <span className="text-2xl block float-left">
@@ -98,8 +105,9 @@ function DashBoradComponent() {
                         return (
                           <>
                             <li
+                            onClick={(e)=> handleClick(index)}
                               key={index}
-                              className={`text-[#2a3547] text-base font-medium flex items-center justify-between cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] hover:text-black rounded-md ${sidebarOpen ? 'px-5' : 'px-1.5' }`}
+                              className={`text-[#2a3547] text-base font-medium flex items-center justify-between cursor-pointer p-2 hover:bg-light-blue hover:text-dark-blue hover:text-black rounded-md ${sidebarOpen ? 'px-4' : 'px-1.5' }`}
                             >
                              <div className="flex gap-x-4">
                              {submenuItem?.icon ? (
