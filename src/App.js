@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './style/globle.css';
-import LoginPage from './page/login';
 import Dashboard from './page/Dashboard';
+import Loginpage from './page/Loginpage';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       {/* <header className="App-header"> */}
 
     <Routes>
-        <Route path='/' element={<LoginPage/>}/>
+        <Route path='/' element={<Loginpage/>}/>
         <Route path='/dashborad' element={<Dashboard/>}/>
 
       </Routes>
