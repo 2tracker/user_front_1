@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './style/globle.css';
-import Dashboard from './page/Dashboard';
-import Loginpage from './page/Loginpage';
+import Dashboard from './page/dashborad';
+import Loginpage from './page/loginpage';
 
 function App() {
   return (

@@ -50,6 +50,17 @@ function Login() {
                         }}
                       />
                     </div>
+                    <div className="space-y-2 text-left">
+                      <label className="text-sm font-medium text-gray-700 tracking-wide">
+                        Password
+                      </label>
+                      <input
+                        className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-blue-400"
+                        type="password"
+                        placeholder="password"
+                      
+                      />
+                    </div>
                     <div>
                       <button
                         type="submit"

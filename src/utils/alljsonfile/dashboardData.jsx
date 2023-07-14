@@ -1,40 +1,44 @@
-import { BsFillImageFill , BsReverseLayoutTextSidebarReverse , BsPerson } from "react-icons/bs";
-import { AiOutlineFileText , AiOutlineBarChart , AiOutlineMail , AiOutlineSetting , AiOutlineLogout } from "react-icons/ai";
+import {  BsCalendarEvent , BsReverseLayoutTextSidebarReverse  } from "react-icons/bs";
+import { RiTodoLine } from "react-icons/ri";
+import { FiUsers } from "react-icons/fi";
+import { GoIssueReopened , GoTasklist } from "react-icons/go";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineBarChart,AiFillSetting, AiOutlineIssuesClose ,AiOutlineDashboard, AiOutlineLogout } from "react-icons/ai";
 
 export const DashboardMenus = [
 
 
-  {title: "Dashboard" , icon: <AiOutlineBarChart />},
+  {title: "Dashboard" , icon: <AiOutlineDashboard />},
 
 {
   title: "Tasks",
-  icon: <BsReverseLayoutTextSidebarReverse />,
+  icon: <GoTasklist />,
   submenu: true,
   submenuItems: [
-    {title: "Todo" , icon: <AiOutlineBarChart />},
-        {title: "My issues" ,icon: <AiOutlineBarChart />},
-        {title: "My Reopen issue" ,icon: <AiOutlineBarChart />},
+    {title: "Todo" , icon: <RiTodoLine />},
+        {title: "My issues" ,icon: <AiOutlineIssuesClose />},
+        {title: "My Reopen issue" ,icon: <GoIssueReopened />},
         {title: "My QA Test Tasks" ,icon: <AiOutlineBarChart />},
   ],
 },
 
 {
   title: "Events",
-  icon: <BsReverseLayoutTextSidebarReverse />,
+  icon: <BsCalendarEvent />,
   submenuEvent: true,
   EventsubmenuItems: [
     {title: "Chats" , icon: <AiOutlineBarChart />},
   ],
 },
 
-{ title: " Setting" , icon: <AiOutlineLogout />},
+{ title: " Setting" , icon: <AiFillSetting />},
 
 {
   title: "Users",
-  icon: <BsReverseLayoutTextSidebarReverse />,
+  icon: <FiUsers />,
   submenuUser: true,
   UsersubmenuItems: [
-    {title: "My Profile" , icon: <AiOutlineBarChart />},
+    {title: "My Profile" , icon: <CgProfile />},
   
   { title: " Logout" , icon: <AiOutlineLogout />},
   ],
