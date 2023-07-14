@@ -8,39 +8,39 @@ import { AiOutlineBarChart,AiFillSetting, AiOutlineIssuesClose ,AiOutlineDashboa
 export const DashboardMenus = [
 
 
-  {title: "Dashboard" , icon: <AiOutlineDashboard />},
+  {title: "Dashboard" , icon: <AiOutlineDashboard className="w-[22px] h-[22px]"/>},
 
 {
   title: "Tasks",
-  icon: <GoTasklist />,
+  icon: <GoTasklist className="w-[22px] h-[22px]"/>,
   submenu: true,
   submenuItems: [
-    {title: "Todo" , icon: <RiTodoLine />},
-        {title: "My issues" ,icon: <AiOutlineIssuesClose />},
-        {title: "My Reopen issue" ,icon: <GoIssueReopened />},
-        {title: "My QA Test Tasks" ,icon: <AiOutlineBarChart />},
+    {title: "Todo" , icon: <RiTodoLine className="w-[22px] h-[22px]"/>},
+        {title: "My issues" ,icon: <AiOutlineIssuesClose className="w-[22px] h-[22px]"/>},
+        {title: "My Reopen issue" ,icon: <GoIssueReopened className="w-[22px] h-[22px]"/>},
+        {title: "My QA Test Tasks" ,icon: <AiOutlineBarChart className="w-[22px] h-[22px]"/>},
   ],
 },
 
 {
   title: "Events",
-  icon: <BsCalendarEvent />,
+  icon: <BsCalendarEvent className="w-[22px] h-[22px]"/>,
   submenuEvent: true,
   EventsubmenuItems: [
-    {title: "Chats" , icon: <AiOutlineBarChart />},
+    {title: "Chats" , icon: <AiOutlineBarChart className="w-[22px] h-[22px]"/>},
   ],
 },
 
-{ title: " Setting" , icon: <AiFillSetting />},
+{ title: " Setting" , icon: <AiFillSetting className="w-[22px] h-[22px]"/>},
 
 {
   title: "Users",
-  icon: <FiUsers />,
+  icon: <FiUsers className="w-[22px] h-[22px]"/>,
   submenuUser: true,
   UsersubmenuItems: [
-    {title: "My Profile" , icon: <CgProfile />},
+    {title: "My Profile" , icon: <CgProfile className="w-[22px] h-[22px]"/>},
   
-  { title: " Logout" , icon: <AiOutlineLogout />},
+  { title: " Logout" , icon: <AiOutlineLogout className="w-[22px] h-[22px]"/>},
   ],
 },
 

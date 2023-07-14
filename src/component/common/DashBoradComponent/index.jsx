@@ -41,7 +41,7 @@ function DashBoradComponent() {
                 Tracker
               </h1>
             </div>
-            <ul className=" px-6 pt-2">
+            <ul className=" px-6 pt-2 max-[1024px]:px-4">
               {DashboardMenus?.map((menudata, index) => {
                 return (
                   <>
@@ -64,7 +64,7 @@ function DashBoradComponent() {
                         ""
                       )}
                       <span
-                        className={`text-base font-medium flex-1 duration-200 `}
+                        className={`text-[14px] font-medium flex-1 duration-200 `}
                       >
                         {sidebarOpen ? menudata?.title : ""}
                       </span>
@@ -105,7 +105,7 @@ function DashBoradComponent() {
                             <>
                               <li
                                 key={index}
-                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
                                   sidebarOpen ? "px-5" : "px-1.5"
                                 }`}
                               >
@@ -136,7 +136,7 @@ function DashBoradComponent() {
                             <>
                               <li
                                 key={index}
-                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
                                   sidebarOpen ? "px-5" : "px-1.5"
                                 }`}
                               >
@@ -167,7 +167,7 @@ function DashBoradComponent() {
                             <>
                               <li
                                 key={index}
-                                className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                                className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
                                   sidebarOpen ? "px-5" : "px-1.5"
                                 }`}
                               >
@@ -196,7 +196,7 @@ function DashBoradComponent() {
                           <>
                             <li
                               key={index}
-                              className={`text-[#2a3547] text-base font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
+                              className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
                                 sidebarOpen ? "px-5" : "px-1.5"
                               }`}
                             >
