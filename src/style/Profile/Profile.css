@@ -1,0 +1,14 @@
+.profile-bg{
+    background-image: linear-gradient(rgb(80, 178, 252), rgb(244, 76, 102));
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.box-profile{
+    box-shadow: rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+}

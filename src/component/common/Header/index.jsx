@@ -23,26 +23,12 @@ const [cartPopup , setCartPopup] = useState(false)
             }`}
           />
         </div>
-        <div className="p-3">
+        {/* <div className="p-3">
           <BsSearch
             className={`text-black text-md block float-left cursor-pointer `}
           />
-        </div>
-        <div className="px-[15px] py-[5px] ">
-          <Link href="#" className="text-[#2a3547] text-[14px]">
-            Chat
-          </Link>
-        </div>
-        <div className="px-[15px] py-[5px] ">
-          <Link href="#" className="text-[#2a3547] text-[14px]">
-            Calendar
-          </Link>
-        </div>
-        <div className="px-[15px] py-[5px] ">
-          <Link href="#" className="text-[#2a3547] text-[14px]">
-            Email
-          </Link>
-        </div>
+        </div> */}
+
       </div>
       <div className="flex gap-x-4 items-center">
         <div className="country-flag p-2 rounded-full w-5 h-5 bg-black"></div>

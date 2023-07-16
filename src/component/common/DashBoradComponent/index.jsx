@@ -6,6 +6,7 @@ import { BsSearch, BsChevronDown } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { DashboardMenus } from "../../../utils/alljsonfile/dashboardData";
 import Header from "../Header";
+import MyProfileComponent from "../MyProfileComponent";
 
 function DashBoradComponent() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -214,6 +215,7 @@ function DashBoradComponent() {
           </div>
           <div className=" w-full">
             <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+            <MyProfileComponent/>
           </div>
         </div>
       </>
