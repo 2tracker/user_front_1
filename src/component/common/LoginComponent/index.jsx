@@ -10,12 +10,12 @@ function Login() {
   return (
     <div>
       <div className="bg-no-repeat bg-light-blue bg-cover bg-center relative">
-        <div className="container mx-auto !px-20 max-[1200px]:!px-0 max-[1024px]:!px-8  max-[991px]:min-w-full max-[479px]:px-4">
-          <div className="min-h-screen mx-0 py-20 justify-center gap-8 max-[991px]:gap-0 max-[576px]:content-center flex" >
-            <div className="	grid grid-cols-2 py-20  items-center bg-white rounded-xl">
+        <div className="container mx-auto !px-20 max-[1200px]:!px-0 max-[1024px]:!px-8  max-[991px]:min-w-full max-[479px]:!px-4 ">
+          <div className="min-h-screen mx-0 py-20 max-[1600px]:py-16 max-[576px]:py-10 justify-center gap-8 max-[991px]:gap-0 max-[576px]:content-center flex" >
+            <div className="	grid grid-cols-2 py-20  items-center bg-white rounded-xl max-[834px]:px-4 max-[576px]:grid-cols-1 max-[576px]:gap-4 max-[479px]:py-8">
 
             <div className=" h-full">
-            <img src="images/login-side-img.svg" className="w-[80%] mx-auto h-full"/>
+            <img src="images/login-side-img.svg" className="w-[80%] mx-auto h-full max-[834px]:w-[90%]"/>
             </div>
             <div>
               <div className="pb-5">
