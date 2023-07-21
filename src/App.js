@@ -4,6 +4,7 @@ import './style/globle.css';
 import Dashboard from './page/dashborad';
 import Loginpage from './page/loginpage';
 import Myprofile from './page/myprofile';
+import Layout from './component/common/Layout';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path='/myprofile' element={<Myprofile/>}/>
 
       </Routes>
+
+
       {/* </header> */}
     </div>
   );

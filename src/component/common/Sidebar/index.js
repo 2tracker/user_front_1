@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { BiArrowBack } from "react-icons/bi";
-import { BsSearch, BsChevronDown } from "react-icons/bs";
+import {  BsChevronDown } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { DashboardMenus } from "../../../utils/alljsonfile/dashboardData";
-import Header from "../Header";
-import MyProfileComponent from "../MyProfileComponent";
+import { Link } from "react-router-dom";
 
-function DashBoradComponent() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
-  const [submenuEventOpen, setSubmenuEventOpen] = useState(false);
-  const [submenuUserOpen, setSubmenuUserOpen] = useState(false);
 
-  const handleClick = (e) => {
-    console.log(e, ".dvbnjvjvjvhdfjvdvd");
-  };
+function Sidebar({sidebarOpen , setSidebarOpen}) {
 
-  return (
-    <div>
-      <>
-        <div className="flex">
-          <div
+    const [submenuOpen, setSubmenuOpen] = useState(false);
+    const [submenuEventOpen, setSubmenuEventOpen] = useState(false);
+    const [submenuUserOpen, setSubmenuUserOpen] = useState(false);
+  
+
+    const handleClick = (e) => {
+        console.log(e, ".dvbnjvjvjvhdfjvdvd");
+      };
+
+    return (
+        <div>
+                 <div
             className={`bg-white border-r h-screen relative ${
               sidebarOpen ? "w-72" : "w-20"
             } duration-300  relative text-left`}
@@ -46,6 +43,7 @@ function DashBoradComponent() {
               {DashboardMenus?.map((menudata, index) => {
                 return (
                   <>
+                  
                     <li
                       onClick={(e) => handleClick(index)}
                       key={index}
@@ -64,13 +62,14 @@ function DashBoradComponent() {
                       ) : (
                         ""
                       )}
-                      <span
-                        className={`text-[14px] font-medium flex-1 duration-200 `}
+                      <Link
+                       to={`/${menudata?.linkpage}`} className={`text-[14px] font-medium flex-1 duration-200 `}
                       >
                         {sidebarOpen ? menudata?.title : ""}
-                      </span>
+                      </Link>
 
                     {/* ===== Task Sub  Drop button======== */}
+
                       {menudata?.submenu && sidebarOpen && (
                         <BsChevronDown
                           className={`${submenuOpen && "rotate-180"}`}
@@ -104,6 +103,7 @@ function DashBoradComponent() {
                         {menudata?.submenuItems?.map((submenuItem, index) => {
                           return (
                             <>
+                            <Link  to={`/${submenuItem?.linkpage}`}>
                               <li
                                 key={index}
                                 className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
@@ -123,6 +123,7 @@ function DashBoradComponent() {
                               )}
                                 {submenuItem?.title}
                               </li>
+                              </Link>
                             </>
                           );
                         })}
@@ -135,6 +136,7 @@ function DashBoradComponent() {
                         {menudata?.EventsubmenuItems?.map((submenuItem, index) => {
                           return (
                             <>
+                            <Link  to={`/${submenuItem?.linkpage}`}>
                               <li
                                 key={index}
                                 className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
@@ -154,6 +156,7 @@ function DashBoradComponent() {
                               )}
                                 {submenuItem?.title}
                               </li>
+                              </Link>
                             </>
                           );
                         })}
@@ -166,6 +169,8 @@ function DashBoradComponent() {
                         {menudata?.UsersubmenuItems?.map((submenuItem, index) => {
                           return (
                             <>
+                            <Link  to={`/${submenuItem?.linkpage}`}>
+
                               <li
                                 key={index}
                                 className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
@@ -185,6 +190,7 @@ function DashBoradComponent() {
                               )}
                                 {submenuItem?.title}
                               </li>
+                              </Link>
                             </>
                           );
                         })}
@@ -213,14 +219,8 @@ function DashBoradComponent() {
               })}
             </ul>
           </div>
-          <div className=" w-full">
-            <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-            <MyProfileComponent/>
-          </div>
         </div>
-      </>
-    </div>
-  );
+    );
 }
 
-export default DashBoradComponent;
+export default Sidebar;

@@ -40,18 +40,18 @@ function MyProfileComponent() {
 
             </div>
             <div className="relative left-0 right-0 bottom-12">
-              <div class="">
-                <div class="w-24 h-24 rounded-full p-1.5 profile-bg mx-auto">
+              <div className="">
+                <div className="w-24 h-24 rounded-full p-1.5 profile-bg mx-auto">
                   <img
                     alt="profileImage"
                     src="/images/user-2.jpg"
-                    class="rounded-full"
+                    className="rounded-full"
                   />
                 </div>
               </div>
-              <div class="pt-2">
-                <h5 class="text-[18px] font-medium">Julia Roberts</h5>
-                <h6 class="text-[16px] font-normal">Project Manager</h6>
+              <div className="pt-2">
+                <h5 className="text-[18px] font-medium">Julia Roberts</h5>
+                <h6 className="text-[16px] font-normal">Project Manager</h6>
               </div>
             </div>
             <div className="flex items-center justify-end gap-4">
