@@ -28,15 +28,18 @@ function Sidebar({sidebarOpen , setSidebarOpen}) {
               onClick={() => setSidebarOpen(!sidebarOpen)}/> */}
 
             <div className="inline-flex gap-3  px-6 min-h-[64px] items-center w-full bg-white sticky top-0">
+              {!sidebarOpen &&
+              
               <FaBars
                 className={`bg-white text-3xl p-1 overflow-visible cursor-pointer rounded block float-left duration-500 `}
               />
+              }
               <h1
                 className={`text-xl font-medium origin-left text-[#2a3547] duration-300 ${
                   !sidebarOpen && "scale-0"
                 }`}
               >
-                Tracker
+                Company Name
               </h1>
             </div>
             <ul className=" px-6 pt-2 max-[1024px]:px-4">

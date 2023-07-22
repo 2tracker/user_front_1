@@ -6,17 +6,24 @@ import { MdOutlineNotificationsActive } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { Box, Button, Divider, Menu, MenuItem } from "@mui/material";
 import { Link } from "react-router-dom";
+import { NotificationData } from "../../../utils/alljsonfile/notificationData";
 
 function Header({ setSidebarOpen, sidebarOpen }) {
   const [cartPopup, setCartPopup] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [notificationOpen, setNotificationOpen] = React.useState(null);
   const open = Boolean(anchorEl);
+  const NotificationDropopen = Boolean(notificationOpen);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  const handleClickNotification = (event) => {
+    setNotificationOpen(event.currentTarget);
+  };
   const handleClose = () => {
     setAnchorEl(null);
+    setNotificationOpen(null);
   };
 
   return (
@@ -55,7 +62,10 @@ function Header({ setSidebarOpen, sidebarOpen }) {
 
           {/* ========= notification ======== */}
           <div className=" w-[45px] h-[45px] p-3">
-            <div className="relative">
+            <div className="relative"   onClick={handleClickNotification}
+            aria-controls={NotificationDropopen ? "notification-drop" : undefined}
+            aria-haspopup="true"
+            aria-expanded={NotificationDropopen ? "true" : undefined}>
               <MdOutlineNotificationsActive className="w-6 h-6 " />
               <div className="absolute w-2 h-2 rounded-full top-[-5px] right-[-4px] bg-dark-blue flex items-center justify-center"></div>
             </div>
@@ -151,11 +161,11 @@ function Header({ setSidebarOpen, sidebarOpen }) {
             <div className="p-3 bg-[#ecf2ff] rounded-md">
               <img
                 alt="profileImage"
-                src="/images/profile-account.svg"
+                src="/images/icon-inbox.svg"
                 className="w-[22px] h-[22px]"
               />
             </div>
-            <Link to={"/my-profile"}>
+            <Link to={"/myprofile"}>
               <h6 className="text-[14px] font-medium text-black hover:text-[#5d87ff]">
                 My Profile
               </h6>
@@ -185,7 +195,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
             <div className="p-3 bg-[#ecf2ff] rounded-md">
               <img
                 alt="profileImage"
-                src="/images/profile-account.svg"
+                src="/images/icon-tasks.svg"
                 className="w-[22px] h-[22px]"
               />
             </div>
@@ -204,6 +214,62 @@ function Header({ setSidebarOpen, sidebarOpen }) {
           </div>
          
       </Menu>
+
+        {/* ================= Notification Dropdown ========================== */}
+
+        <Menu
+        anchorEl={anchorEl}
+        id="notification-drop"
+        open={NotificationDropopen}
+        onClose={handleClose}
+        PaperProps={{
+          elevation: 0,
+          className: "px-8 py-4 overflow-visible profile-popup w-1/6 h-auto !max-h-auto !overflow-auto !top-[65px] !left-[80%]",
+          sx: {
+            overflow: "visible",
+            filter: "drop-shadow(0px 1px 5px rgba(0,0,0,0.20))",
+          },
+        }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+      >
+          <div className="flex justify-between items-center">
+            <p className="text-[18px] text-black font-medium">Notifications</p>
+            <div>
+              <button className="px-2 bg-[#5d87ff] rounded-3xl text-white text-[12px] font-semibold flex items-center justify-center">5new</button>
+            </div>
+          </div>
+          {NotificationData?.map((datanotification , index) => {
+            return(
+              <div className="flex gap-3 pt-4">
+              <div className="w-12 h-12 rounded-full ">
+                <img
+                  alt="profileImage"
+                  src={datanotification?.userimage}
+                  className="rounded-full"
+                />
+              </div>
+              <div>
+                <p className="text-[14px] font-medium text-[#2a3547]">
+               {datanotification?.username}
+                </p>
+                <p className="text-[14px] text-[#2a3547]">{datanotification?.usersubtext}</p>
+                
+              </div>
+            </div>
+            )
+          })}
+      
+
+          <Divider />
+       
+
+          <div className="mt-2">
+            <button className="w-full p-2 border border-[#5d87ff] rounded-md text-[16px] text-[#5d87ff]  hover:text-white hover:bg-[#5d87ff] hover:border-[#5d87ff] duration-300">Logout</button>
+          </div>
+         
+      </Menu>
+
     </>
   );
 }

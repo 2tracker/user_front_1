@@ -30,13 +30,13 @@ function MyProfileComponent() {
                 <div>
                     <CgProfile className="mx-auto w-6 h-auto mb-1"/>
                     <h4 className="text-[25px] font-medium">3,586</h4>
-                    <h6 className="text-[16px] font-normal">Followers</h6>
+                    <h6 className="text-[16px] font-normal">Total Members</h6>
                 </div>
-                <div>
+                {/* <div>
                     <SlUserFollowing className="mx-auto w-6 h-auto mb-1"/>
                     <h4 className="text-[25px] font-medium">2,659</h4>
                     <h6 className="text-[16px] font-normal">Following</h6>
-                </div>
+                </div> */}
 
             </div>
             <div className="relative left-0 right-0 bottom-12">

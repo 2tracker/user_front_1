@@ -7,7 +7,7 @@ import { AiOutlineBarChart,AiFillSetting, AiOutlineIssuesClose ,AiOutlineDashboa
 
 export const DashboardMenus = [
 
-{title: "Dashboard" , icon: <AiOutlineDashboard className="w-[22px] h-[22px]"/> , linkpage : "dashborad"},
+{title: "Dashboard" , icon: <AiOutlineDashboard className="w-[22px] h-[22px]"/> , linkpage : "dashboard"},
 
 {
   title: "Tasks",

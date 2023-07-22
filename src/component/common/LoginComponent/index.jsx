@@ -20,7 +20,7 @@ function Login() {
             <div>
               <div className="pb-5">
                 <h3 className="font-semibold text-2xl text-gray-800">
-                  Sign In to Track
+                  Sign In to Company Name
                 </h3>
               </div>
 
