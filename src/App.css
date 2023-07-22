@@ -1,4 +1,5 @@
 @import url('../src/style/Profile/Profile.css');
+@import url('../src/style/tableProject/tableProject.css');
 
 .App {
   text-align: center;
