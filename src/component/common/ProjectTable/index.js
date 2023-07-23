@@ -1,5 +1,5 @@
 import React from "react";
-import { BiBriefcase } from "react-icons/bi";
+import { GoDotFill } from "react-icons/go";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiComputerLine } from "react-icons/ri";
@@ -10,21 +10,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Chart  from 'react-apexcharts'
+import Chart from "react-apexcharts";
 
 import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
+import { Image } from "@mui/icons-material";
+import { DonutChart } from "../DonutChart";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
 
 function ProjectTable() {
   const [age, setAge] = React.useState("");
@@ -32,16 +24,13 @@ function ProjectTable() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
-
-
-
-
+  
 
   return (
     <div className="container mx-auto">
       <div className="p-6">
-        <div className="grid grid-cols-12 p-6 gap-6">
-          <div className="col-span-8  rounded-lg border p-[30px]">
+        <div className="grid grid-cols-12  gap-6">
+          <div className="col-span-9  rounded-lg border p-[30px]">
             <div className="flex items-center justify-between pb-5">
               <h5 className="text-[18px] font-semibold text-left">
                 Top Projects
@@ -75,7 +64,7 @@ function ProjectTable() {
                       </TableCell>
                     </TableRow>
                   </TableHead>
-                  <TableBody>
+                  <TableBody className="!h-[300px] !overflow-y-scroll ">
                     <TableRow
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
@@ -181,22 +170,56 @@ function ProjectTable() {
               </TableContainer>
             </div>
           </div>
-          <div className="col-span-4 p-6 border rounded-lg text-left">
-            <div className="grid grid-cols-2">
-              <div>
-              <h5 className="text-[18px] font-semibold text-left">
-              Yearly Breakup
-              </h5>
-              <h4 className="text-[24px]">$36,358</h4>
+          <div className="col-span-3 flex flex-col gap-4">
+            <div className="p-6 border rounded-lg text-left h-auto">
+              <div className="grid grid-cols-2 items-center">
+                <div>
+                  <h5 className="text-[18px] font-semibold text-left">
+                    Yearly Breakup
+                  </h5>
+                  
+                    <div className="pt-6 ">
+                      <h4 className="text-[24px] font-semibold">$36,358</h4>
+                      <div className="pt-1 flex items-center gap-2">
+                        <img className="bg-[#e6fffa] rounded-full" src="/images/grow-up.svg"/>
+                        <h6 className="text-[14px] font-semibold">+9%</h6>
+                        <h6 className="text-[14px] font-normal">last year</h6>
+                      </div>
+                      <div className="flex items-center gap-5 mt-10">
+                        <div className="flex items-center">
+                              <GoDotFill className="text-[#5d87ff]"/> <p className="text-[14px] ml-2 text-[#2a3547]">2023</p>
+                        </div>
+                        <div className="flex items-center">
+                              <GoDotFill className="text-[#ecf2ff]"/> <p className="text-[14px] ml-2 text-[#2a3547]">2023</p>
+                        </div>
 
-              <div>
-      Chart
+                      </div>
+                    </div>
+             
+                </div>
+                <div>
+                <DonutChart/>
+
+                </div>
+              </div>
+            </div>
+            <div className="p-6 border rounded-lg text-left h-full">
+              <div className="grid grid-cols-2">
+                <div>
+                  <h5 className="text-[18px] font-semibold text-left">
+                    Yearly Breakup
+                  </h5>
+                  <h4 className="text-[24px]">$36,358</h4>
+                  <div>
+                  </div>
+
+                  <div>Chart</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

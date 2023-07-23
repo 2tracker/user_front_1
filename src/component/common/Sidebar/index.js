@@ -20,7 +20,7 @@ function Sidebar({sidebarOpen , setSidebarOpen}) {
     return (
         <div>
                  <div
-            className={`bg-white border-r h-screen relative ${
+            className={`bg-white border-r h-full relative ${
               sidebarOpen ? "w-72" : "w-20"
             } duration-300  relative text-left`}
           >

@@ -5,3 +5,8 @@
 .month-select div{
 padding: 10px;
 }
+
+
+.chart-pie div svg{
+    width: 100% !important;
+}

@@ -44,7 +44,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
 
   return (
     <>
-      <div className="px-6 flex items-center bg-white sticky top-0 w-full min-h-[64px] justify-between">
+      <div className="px-6 flex items-center bg-white sticky top-0 w-full min-h-[64px] justify-between shadow-sm z-50">
         <div className="flex items-center ">
           <div className="inline-flex gap-3 p-3">
             <FaBars
