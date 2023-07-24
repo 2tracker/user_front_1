@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import './style/globle.css';
 import Dashboard from './page/dashboard';
-import Loginpage from './page/Loginpage';
 import Myprofile from './page/myprofile';
 import Layout from './component/common/Layout';
+import Loginpage from './page/loginpage';
 
 function App() {
   return (

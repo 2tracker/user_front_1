@@ -1,10 +1,12 @@
+import React from 'react';
 import Login from "../component/common/LoginComponent";
 
-const Loginpage = ()=>{
-    return(
-        <>
+
+function Loginpage(  ) {
+    return (
         <Login/>
-        </>
-    )
+
+    );
 }
+
 export default Loginpage;

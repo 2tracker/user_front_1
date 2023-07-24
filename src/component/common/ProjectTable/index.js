@@ -15,6 +15,9 @@ import Chart from "react-apexcharts";
 import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
 import { Image } from "@mui/icons-material";
 import { DonutChart } from "../DonutChart";
+import { HighchartsReact } from "highcharts-react-official";
+import Highcharts from 'highcharts'
+
 
 
 
@@ -24,13 +27,26 @@ function ProjectTable() {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+
+  const options = {
+    title: {
+      text: 'My chart'
+    },
+    chart: {
+      type: 'pie'
+  },
+    series: [{
+      data: [50,25]
+    }]
+  }
   
 
   return (
     <div className="container mx-auto">
       <div className="p-6">
-        <div className="grid grid-cols-12  gap-6">
-          <div className="col-span-9  rounded-lg border p-[30px]">
+        <div className="grid grid-cols-12 max-[576px]:grid-cols-1  gap-6">
+          <div className="col-span-9  rounded-lg border p-[30px] max-[834px]:col-span-8 max-[576px]:col-span-1">
             <div className="flex items-center justify-between pb-5">
               <h5 className="text-[18px] font-semibold text-left">
                 Top Projects
@@ -170,9 +186,9 @@ function ProjectTable() {
               </TableContainer>
             </div>
           </div>
-          <div className="col-span-3 flex flex-col gap-4">
+          <div className="col-span-3 flex flex-col gap-4 max-[834px]:col-span-4  max-[576px]:col-span-1">
             <div className="p-6 border rounded-lg text-left h-auto">
-              <div className="grid grid-cols-2 items-center">
+              <div className="grid grid-cols-2 items-center max-[1440px]:grid-cols-1">
                 <div>
                   <h5 className="text-[18px] font-semibold text-left">
                     Yearly Breakup
@@ -197,8 +213,11 @@ function ProjectTable() {
                     </div>
              
                 </div>
-                <div>
-                <DonutChart/>
+                <div className="pie-chart-table h-full">
+                <HighchartsReact
+    highcharts={Highcharts}
+    options={options}
+  />
 
                 </div>
               </div>

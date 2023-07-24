@@ -54,3 +54,13 @@
     -webkit-box-orient: vertical;
     word-wrap: break-word;/* Important for long words! */
   }
+
+
+
+ path.highcharts-data-label-connector,text.highcharts-title , g.highcharts-data-labels , text.highcharts-credits {
+    display: none;
+} 
+
+.pie-chart-table div{
+  height: 100%;
+}
