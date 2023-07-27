@@ -1,15 +1,15 @@
 import React from 'react';
-import NotsComponent from '../component/common/NotsComponent';
 import Layout from '../component/common/Layout';
+import TaskComponent from '../component/common/TaskComponent';
 
-function Notspage(props) {
+function Taskpage(props) {
     return (
         <div>
             <Layout>
-                <NotsComponent/>
+                <TaskComponent/>
             </Layout>
         </div>
     );
 }
 
-export default Notspage;
+export default Taskpage;

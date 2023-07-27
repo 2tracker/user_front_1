@@ -13,6 +13,7 @@ export const DashboardMenus = [
   title: "Tasks",
   icon: <GoTasklist className="w-[22px] h-[22px]"/>,
   submenu: true,
+  linkpage: "task",
   submenuItems: [
         {title: "Todo" , icon: <RiTodoLine className="w-[22px] h-[22px]"/> , linkpage : "todo",},
         {title: "My issues" ,icon: <AiOutlineIssuesClose className="w-[22px] h-[22px]"/> , linkpage : "todo",},

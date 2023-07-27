@@ -9,9 +9,21 @@ function PostCard() {
   return (
     <div className="container mx-auto">
       <div className="p-6">
-        <div className="p-[30px] bg-[#ecf2ff] rounded-lg text-left mb-6">
-          <h4 className="text-[22px] text-[#2A3547] font-semibold">Blog App</h4>
-          <p className="text-[14px] text-[#2A3547]">Get the latest news</p>
+        <div className="p-[30px] bg-[#ecf2ff] rounded-lg text-left mb-6 flex items-center relative overflow-hidden">
+          <div className="w-full">
+            <h4 className="text-[22px] text-[#2A3547] font-semibold">
+              Blog App
+            </h4>
+            <p className="text-[14px] text-[#2A3547]">Get the latest news</p>
+          </div>
+          <div className="w-1/3 flex justify-end">
+            <div className="absolute top-0">
+              <img
+                src="images/bredcrumb-bg.png"
+                className=" w-[165px] h-[165px] "
+              />
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-5">
@@ -41,12 +53,12 @@ function PostCard() {
                     <div className="bg-white p-6 rounded-b-lg text-left">
                       <div className="bg-[#00000014] rounded-full inline-flex h-[24px] justify-center items-center max-w-full">
                         <span className="px-2 text-[12px] font-semibold">
-                        {postdata?.posttype}
+                          {postdata?.posttype}
                         </span>
                       </div>
                       <div className="py-6">
                         <Link className="text-[22px] font-semibold" href="#">
-                        {postdata?.posttitle}
+                          {postdata?.posttitle}
                         </Link>
                         <div className="long-and-truncated">
                           <p className="pt-2">
@@ -59,18 +71,20 @@ function PostCard() {
                           <div className="flex items-center">
                             <AiOutlineEye className="w-5 h-auto" />{" "}
                             <p className="text-[16px] ml-2 text-[#2a3547]">
-                            {postdata?.postviewdata}
+                              {postdata?.postviewdata}
                             </p>
                           </div>
                           <div className="flex items-center">
                             <TbMessage2 className="w-5 h-auto" />{" "}
-                            <p className="text-[16px] ml-2 text-[#2a3547]">{postdata?.posttotalmsg}</p>
+                            <p className="text-[16px] ml-2 text-[#2a3547]">
+                              {postdata?.posttotalmsg}
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-center">
                           <RxDot className="w-5 h-auto" />{" "}
                           <p className="text-[16px] ml-1 text-[#2a3547]">
-                          {postdata?.postdate}
+                            {postdata?.postdate}
                           </p>
                         </div>
                       </div>

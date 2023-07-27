@@ -67,7 +67,7 @@ function ProjectTable() {
               </div>
             </div>
             <div>
-              <TableContainer component={Paper} className="user-table-data">
+              <TableContainer component={Paper} sx={{ maxHeight: 300 }} className="user-table-data">
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                   <TableHead>
                     <TableRow className="user-table-title">
@@ -81,6 +81,56 @@ function ProjectTable() {
                     </TableRow>
                   </TableHead>
                   <TableBody className="!h-[300px] !overflow-y-scroll ">
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        <div className="flex gap-3 py-1">
+                          <div className="w-10 h-10 rounded-full ">
+                            <img
+                              alt="profileImage"
+                              src="/images/user-2.jpg"
+                              className="rounded-full"
+                            />
+                          </div>
+                          <div>
+                            <p className="text-[14px] font-semibold text-[#2a3547]">
+                              Sunil Joshi
+                            </p>
+                            <p className="text-[12px] text-[#2a3547]">
+                              Web Designer
+                            </p>
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>08/12/2001</TableCell>
+                      <TableCell>15</TableCell>
+                    </TableRow>
+                    <TableRow
+                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        <div className="flex gap-3 py-1">
+                          <div className="w-10 h-10 rounded-full ">
+                            <img
+                              alt="profileImage"
+                              src="/images/user-2.jpg"
+                              className="rounded-full"
+                            />
+                          </div>
+                          <div>
+                            <p className="text-[14px] font-semibold text-[#2a3547]">
+                              Sunil Joshi
+                            </p>
+                            <p className="text-[12px] text-[#2a3547]">
+                              Web Designer
+                            </p>
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>08/12/2001</TableCell>
+                      <TableCell>15</TableCell>
+                    </TableRow>
                     <TableRow
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
