@@ -5,6 +5,7 @@ import Dashboard from './page/dashboard';
 import Myprofile from './page/myprofile';
 import Loginpage from './page/loginpage';
 import Taskpage from './page/taskpage';
+import CreateticketPage from './page/createticket';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/myprofile' element={<Myprofile/>}/>
         <Route path='/task' element={<Taskpage/>}/>
+        <Route path='/ticketcreate' element={<CreateticketPage/>}/>
 
       </Routes>
 

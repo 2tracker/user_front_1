@@ -97,7 +97,7 @@ export default function TaskComponent() {
         </div>
 
         <div className="border rounded-md p-6">
-          <div className="mb-8 grid grid-cols-4 gap-6">
+          <div className="mb-8 grid grid-cols-4 gap-6 max-[834px]:grid-cols-2 max-[479px]:grid-cols-2">
             <div className="bg-[#ecf2ff] cursor-pointer rounded-lg p-[30px] text-[#5d87ff] duration-200 hover:scale-[1.05]">
               <h3 className="font-semibold text-[24px] leading-7">7</h3>
               <h6 className="font-semibold text-[16px] leading-5">
