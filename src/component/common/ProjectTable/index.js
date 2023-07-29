@@ -1,8 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GoDotFill } from "react-icons/go";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import { MdOutlineEmail } from "react-icons/md";
-import { RiComputerLine } from "react-icons/ri";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,17 +7,16 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
-import { Image } from "@mui/icons-material";
 import Highcharts from 'highcharts'
 import { HighchartsReact } from "highcharts-react-official";
-
+import { GetDOB } from "../../../auth/dashboardApi";
+import moment from 'moment';
 
 
 
 function ProjectTable() {
   const [age, setAge] = React.useState("");
+  const [getDob,setGeDob] = React.useState([])
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -39,7 +35,13 @@ function ProjectTable() {
     }]
   }
   
-
+useEffect(()=>{
+  GetDOB().then((res)=>{
+    setGeDob(res)
+  }).catch((err)=>{
+    console.log(err,"DOB ERROR");
+  })
+},[])
   return (
     <div className="container mx-auto">
       <div className="p-6">
@@ -47,22 +49,8 @@ function ProjectTable() {
           <div className="col-span-9  rounded-lg border p-[30px] max-[834px]:col-span-8 max-[576px]:col-span-1">
             <div className="flex items-center justify-between pb-5">
               <h5 className="text-[18px] font-semibold text-left">
-                Top Projects
+                Birthdays
               </h5>
-              <div>
-                <FormControl sx={{ m: 1, minWidth: 120 }}>
-                  <Select
-                    value={age}
-                    onChange={handleChange}
-                    displayEmpty
-                    className="month-select"
-                  >
-                    <MenuItem value={10}>March 2023</MenuItem>
-                    <MenuItem value={20}>April 2023</MenuItem>
-                    <MenuItem value={30}>May 2023</MenuItem>
-                  </Select>
-                </FormControl>
-              </div>
             </div>
             <div>
               <TableContainer component={Paper} sx={{ maxHeight: 300 }} className="user-table-data">
@@ -76,10 +64,16 @@ function ProjectTable() {
                       <TableCell className="!font-bold">
                         Waiting Birthday
                       </TableCell>
+                      <TableCell className="!font-bold">
+                        Birthday Excitement
+                      </TableCell>
                     </TableRow>
                   </TableHead>
-                  <TableBody className="!h-[300px] !overflow-y-scroll ">
-                    <TableRow
+                  <TableBody className="h-full min-h-[300px] !overflow-y-auto ">
+                  {getDob.map((item,index)=>{
+                    return (
+                      <>
+                      <TableRow
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
                       <TableCell component="th" scope="row">
@@ -93,142 +87,24 @@ function ProjectTable() {
                           </div>
                           <div>
                             <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
+                              {item?.firstName} {item?.lastName}
                             </p>
                             <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
+                              {item?.role}
                             </p>
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
+                      <TableCell>{moment(item?.DOB).format('DD/MM/YYYY')}</TableCell>
+                      <TableCell>{item?.daysToBday} Days</TableCell>
+                      <TableCell><button className={`w-[130px] h-[30px] ${item?.daysToBday > 130 ? 'text-orange-600 bg-orange-200' : 'text-blue-500 bg-blue-200'} ${item?.daysToBday === 0 && 'text-blue-500 bg-white'} font-semibold text-[16px]   rounded-2xl`}>
+                        {item?.daysToBday > 130 ? 'Low' : 'Something' } {item?.daysToBday === 0 && 'My Birthday'}
+                        </button></TableCell>
+                      
                     </TableRow>
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        <div className="flex gap-3 py-1">
-                          <div className="w-10 h-10 rounded-full ">
-                            <img
-                              alt="profileImage"
-                              src="/images/user-2.jpg"
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
-                            </p>
-                            <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
-                    </TableRow>
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        <div className="flex gap-3 py-1">
-                          <div className="w-10 h-10 rounded-full ">
-                            <img
-                              alt="profileImage"
-                              src="/images/user-2.jpg"
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
-                            </p>
-                            <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
-                    </TableRow>
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        <div className="flex gap-3 py-1">
-                          <div className="w-10 h-10 rounded-full ">
-                            <img
-                              alt="profileImage"
-                              src="/images/user-2.jpg"
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
-                            </p>
-                            <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
-                    </TableRow>
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        <div className="flex gap-3 py-1">
-                          <div className="w-10 h-10 rounded-full ">
-                            <img
-                              alt="profileImage"
-                              src="/images/user-2.jpg"
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
-                            </p>
-                            <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
-                    </TableRow>
-                    <TableRow
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        <div className="flex gap-3 py-1">
-                          <div className="w-10 h-10 rounded-full ">
-                            <img
-                              alt="profileImage"
-                              src="/images/user-2.jpg"
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-[14px] font-semibold text-[#2a3547]">
-                              Sunil Joshi
-                            </p>
-                            <p className="text-[12px] text-[#2a3547]">
-                              Web Designer
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>08/12/2001</TableCell>
-                      <TableCell>15</TableCell>
-                    </TableRow>
+                      </>
+                    )
+                  })}
                   </TableBody>
                 </Table>
               </TableContainer>

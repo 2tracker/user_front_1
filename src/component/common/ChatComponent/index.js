@@ -28,9 +28,8 @@ function ChatComponent(props) {
         <div className="p-[30px] bg-[#ecf2ff] rounded-lg text-left mb-6 flex items-center relative overflow-hidden">
           <div className="w-full">
             <h4 className="text-[22px] text-[#2A3547] font-semibold">
-              Chat app
+              Chats
             </h4>
-            <p className="text-[14px] text-[#2A3547]">Messenger</p>
           </div>
           <div className="w-1/3 flex justify-end">
             <div className="absolute top-0">

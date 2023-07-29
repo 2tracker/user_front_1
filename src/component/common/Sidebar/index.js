@@ -3,12 +3,14 @@ import { FaBars } from "react-icons/fa";
 import { BsChevronDown } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 import { DashboardMenus } from "../../../utils/alljsonfile/dashboardData";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const [submenuOpen, setSubmenuOpen] = useState(false);
   const [submenuEventOpen, setSubmenuEventOpen] = useState(false);
   const [submenuUserOpen, setSubmenuUserOpen] = useState(false);
+  const location = useLocation();
+
 
   const handleClick = (e) => {
     console.log(e, ".dvbnjvjvjvhdfjvdvd");
@@ -46,12 +48,12 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   <li
                     onClick={(e) => handleClick(index)}
                     key={index}
-                    className={`text-[#2a3547] text-sm flex items-center gap-x-4 cursor-pointer p-2 rounded-md hover:bg-[#ecf2ff] hover:text-[#5d87ff] ${
+                    className={`text-[#2a3547]  text-sm flex items-center gap-x-4 cursor-pointer p-2 rounded-md ${location.pathname === `/${menudata?.linkpage}` ?'bg-[#ecf2ff] text-[#5d87ff]' : 'hover:bg-[#ecf2ff] hover:text-[#5d87ff]'} ${
                       menudata?.spacing ? "mt-9" : "mt-2"
-                    }`}
+                    } ${sidebarOpen ? "w-full" : 'w-[38px]'}`}
                   >
                     {menudata?.icon ? (
-                      <span className="text-2xl block float-left">
+                      <span className="text-2xl pr-2 block float-left">
                         {menudata?.icon ? menudata?.icon : <RiDashboardFill />}
                       </span>
                     ) : (
