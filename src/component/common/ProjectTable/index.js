@@ -10,13 +10,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Chart from "react-apexcharts";
 
 import { FormControl, FormHelperText, MenuItem, Select } from "@mui/material";
 import { Image } from "@mui/icons-material";
-import { DonutChart } from "../DonutChart";
-import { HighchartsReact } from "highcharts-react-official";
 import Highcharts from 'highcharts'
+import { HighchartsReact } from "highcharts-react-official";
 
 
 
@@ -265,9 +263,8 @@ function ProjectTable() {
                 </div>
                 <div className="pie-chart-table h-full">
                 <HighchartsReact
-    highcharts={Highcharts}
-    options={options}
-  />
+                 highcharts={Highcharts}
+                options={options}/>
 
                 </div>
               </div>

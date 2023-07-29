@@ -4,11 +4,10 @@ import CreateTikcket from '../component/common/CreateTicket';
 
 function CreateticketPage() {
     return (
-        <div>
             <Layout>
                 <CreateTikcket/>
+        
             </Layout>
-        </div>
     );
 }
 

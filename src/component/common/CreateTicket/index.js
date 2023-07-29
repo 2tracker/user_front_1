@@ -13,9 +13,7 @@ import {
 import React, { useState } from "react";
 
 function CreateTikcket() {
-  const [italic, setItalic] = useState(false);
-  const [fontWeight, setFontWeight] = useState("normal");
-  const [anchorEl, setAnchorEl] = useState(null);
+
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {

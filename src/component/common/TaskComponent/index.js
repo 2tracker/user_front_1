@@ -9,7 +9,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { IconButton, Tooltip } from "@mui/material";
+import { Button, IconButton, Tooltip } from "@mui/material";
+import { Link } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 const columns = [
   { id: "name", label: "Name", minWidth: 170 },
@@ -400,6 +402,15 @@ export default function TaskComponent() {
           </div>
         </div>
       </div>
+
+      <Button className="crete-task-button !fixed bottom-6 right-8 hover:rounded-full  hover:inline-flex">
+      <Tooltip title="Crate Ticket">
+
+        <Link to="/ticketcreate" className="bg-[#5d87ff] rounded-full w-[56px] h-[56px] flex items-center justify-center">
+            <FaPlus className="text-white"/>
+        </Link>
+        </Tooltip>
+      </Button>
     </div>
   );
 }

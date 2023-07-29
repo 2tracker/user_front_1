@@ -15,10 +15,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 function Header({ setSidebarOpen, sidebarOpen }) {
   const [cartPopup, setCartPopup] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [openPopup, setOpenPopup] = React.useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openPopup, setOpenPopup] = useState(false);
 
-  const [notificationOpen, setNotificationOpen] = React.useState(null);
+  const [notificationOpen, setNotificationOpen] = useState(null);
   const open = Boolean(anchorEl);
   const NotificationDropopen = Boolean(notificationOpen);
 
@@ -91,7 +91,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
 
 
           {/* ========= notification ======== */}
-          <div className=" w-[45px] h-[45px] p-3">
+          <Button className=" !min-w-[45px] h-[45px] p-3 hover:inline-flex hover:rounded-full common-button-hover">
             <div
               className="relative"
               onClick={handleClickNotification}
@@ -101,14 +101,14 @@ function Header({ setSidebarOpen, sidebarOpen }) {
               aria-haspopup="true"
               aria-expanded={NotificationDropopen ? "true" : undefined}
             >
-              <MdOutlineNotificationsActive className="w-6 h-6 " />
+              <MdOutlineNotificationsActive className="w-6 h-6 text-black " />
               <div className="absolute w-2 h-2 rounded-full top-[-5px] right-[-4px] bg-dark-blue flex items-center justify-center"></div>
             </div>
-          </div>
+          </Button>
 
           {/* ========= User ======== */}
-          <div
-            className=" w-[59px] h-[59px] p-3"
+          <Button
+            className="!rounded-full !min-w-[59px] h-[59px] p-3 hover:inline-flex hover:rounded-full common-button-hover"
             onClick={handleClick}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
@@ -118,7 +118,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
               src="images/user-1.jpg"
               className="rounded-full w--[35px] h-[35px]"
             />
-          </div>
+          </Button>
         </div>
       </div>
 
