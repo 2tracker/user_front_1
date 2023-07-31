@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Container, InputAdornment, TextField } from "@mui/material";
+import { InputAdornment, TextField } from "@mui/material";
 import { RxDotFilled } from "react-icons/rx";
 import { AiOutlineSearch } from "react-icons/ai";
+import { IoCallOutline } from "react-icons/io5";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -160,7 +161,74 @@ function ChatComponent(props) {
                 </div>
               </div>
             </div>
-            <div className="col-span-9">sdccscscdccd</div>
+            <div className="col-span-9 relative">
+              <div className="sticky top-0 p-6 border-b flex">
+              <div className="flex gap-3 items-center  w-full">
+                <div className="w-[40px] h-[40px] rounded-full relative">
+                  <img
+                    alt="profileImage"
+                    src="/images/user-1.jpg"
+                    className="rounded-full"
+                  />
+                  <div className="absolute -bottom-2 -right-1">
+                    <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
+                  </div>
+                </div>
+                <div className="text-left">
+                  <p className="text-[18px] font-semibold text-[#2a3547]">
+                  James Johnson
+
+                  </p>
+                  <p className="text-[12px] font-normal text-[#2a3547]">
+                    online
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                    <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
+                    </Button>
+                    <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
+                    </Button>
+                    <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
+                    </Button>
+              </div>
+              
+
+              </div>
+              <div className="overflow-auto h-[60vh] w-full p-6 ">
+              <div className="flex gap-3 ">
+                <div className="w-[30px] h-[30px] rounded-full relative">
+                  <img
+                    alt="profileImage"
+                    src="/images/user-1.jpg"
+                    className="rounded-full"
+                  />
+                 
+                </div>
+                <div className="text-left">
+                  <p className="text-[12px] font-semibold text-[#2a3547] mb-2">
+                  James Johnson, 2 days ago
+                  </p>
+                  <p className="text-[14px] max-w-[320px] font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
+                    Marketing Manager
+                  </p>
+                </div>
+              </div>
+                    <div className="float-right">
+                    <p className="text-[14px] max-w-[320px] text-left h-auto  font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
+                    Bacusihok bad feb uw tapcu necip pewizefek omupesez gandozan voviko
+                  </p>
+                    </div>
+
+              </div>
+              <div className="absolute bottom-0 p-6 border-t z-50 bg-white w-full">
+sccdscsdcscs
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
