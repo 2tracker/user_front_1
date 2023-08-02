@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { InputAdornment, TextField } from "@mui/material";
 import { RxDotFilled } from "react-icons/rx";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineSend } from "react-icons/ai";
 import { IoCallOutline } from "react-icons/io5";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { HiChevronDown } from "react-icons/hi";
+import { BiSolidMicrophoneAlt } from "react-icons/bi";
+import { BsEmojiSmileFill } from "react-icons/bs";
 
 function ChatComponent(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [sendPop, setSendPop] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,6 +23,12 @@ function ChatComponent(props) {
   };
 
   const handleChange = (event) => {
+    if (event.target.value) {
+      setSendPop(true)
+    }else{
+      setSendPop(false)
+      
+    }
     setSearchTerm(event.target.value);
   };
 
@@ -28,9 +37,7 @@ function ChatComponent(props) {
       <div className="p-6">
         <div className="p-[30px] bg-[#ecf2ff] rounded-lg text-left mb-6 flex items-center relative overflow-hidden">
           <div className="w-full">
-            <h4 className="text-[22px] text-[#2A3547] font-semibold">
-              Chats
-            </h4>
+            <h4 className="text-[22px] text-[#2A3547] font-semibold">Chats</h4>
           </div>
           <div className="w-1/3 flex justify-end">
             <div className="absolute top-0">
@@ -110,124 +117,152 @@ function ChatComponent(props) {
                   </Menu>
                 </div>
                 <div className="relative h-full">
-                    <div className="h-[400px] overflow-y-auto">
+                  <div className="h-[400px] overflow-y-auto">
                     <div className="flex gap-3 items-center px-6 py-4 chat-user-info ">
-                        <div className="w-[42px] h-[42px] rounded-full relative">
-                          <img
-                            alt="profileImage"
-                            src="/images/user-2.jpg"
-                            className="rounded-full"
-                          />
-                          <div className="absolute -bottom-2 -right-1">
-                            <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
-                          </div>
-                        </div>
-                        <div className="text-left">
-                          <p className="text-[14px] font-semibold text-[#2a3547]">
-                            Sunil Joshi
-                          </p>
-                          <p className="text-[12px] font-normal text-[#2a3547]">
-                            Marketing Manager
-                          </p>
-                        </div>
-                        <div className="">
-                            <p className="text-[12px] font-normal text-[#2a3547]">10 minutes</p>
+                      <div className="w-[42px] h-[42px] rounded-full relative">
+                        <img
+                          alt="profileImage"
+                          src="/images/user-2.jpg"
+                          className="rounded-full"
+                        />
+                        <div className="absolute -bottom-2 -right-1">
+                          <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
                         </div>
                       </div>
-                    <div className="flex gap-3 items-center px-6 py-4  chat-user-info ">
-                        <div className="w-[42px] h-[42px] rounded-full relative">
-                          <img
-                            alt="profileImage"
-                            src="/images/user-2.jpg"
-                            className="rounded-full"
-                          />
-                          <div className="absolute -bottom-2 -right-1">
-                            <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
-                          </div>
-                        </div>
-                        <div className="text-left">
-                          <p className="text-[14px] font-semibold text-[#2a3547]">
-                            Sunil Joshi
-                          </p>
-                          <p className="text-[12px] font-normal text-[#2a3547]">
-                            Marketing Manager
-                          </p>
-                        </div>
-                        <div className="">
-                            <p className="text-[12px] font-normal text-[#2a3547]">10 minutes</p>
-                        </div>
+                      <div className="text-left">
+                        <p className="text-[14px] font-semibold text-[#2a3547]">
+                          Sunil Joshi
+                        </p>
+                        <p className="text-[12px] font-normal text-[#2a3547]">
+                          Marketing Manager
+                        </p>
+                      </div>
+                      <div className="">
+                        <p className="text-[12px] font-normal text-[#2a3547]">
+                          10 minutes
+                        </p>
                       </div>
                     </div>
+                    <div className="flex gap-3 items-center px-6 py-4  chat-user-info ">
+                      <div className="w-[42px] h-[42px] rounded-full relative">
+                        <img
+                          alt="profileImage"
+                          src="/images/user-2.jpg"
+                          className="rounded-full"
+                        />
+                        <div className="absolute -bottom-2 -right-1">
+                          <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
+                        </div>
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[14px] font-semibold text-[#2a3547]">
+                          Sunil Joshi
+                        </p>
+                        <p className="text-[12px] font-normal text-[#2a3547]">
+                          Marketing Manager
+                        </p>
+                      </div>
+                      <div className="">
+                        <p className="text-[12px] font-normal text-[#2a3547]">
+                          10 minutes
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-span-9 relative">
               <div className="sticky top-0 p-6 border-b flex">
-              <div className="flex gap-3 items-center  w-full">
-                <div className="w-[40px] h-[40px] rounded-full relative">
-                  <img
-                    alt="profileImage"
-                    src="/images/user-1.jpg"
-                    className="rounded-full"
-                  />
-                  <div className="absolute -bottom-2 -right-1">
-                    <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
+                <div className="flex gap-3 items-center  w-full">
+                  <div className="w-[40px] h-[40px] rounded-full relative">
+                    <img
+                      alt="profileImage"
+                      src="/images/user-1.jpg"
+                      className="rounded-full"
+                    />
+                    <div className="absolute -bottom-2 -right-1">
+                      <RxDotFilled className="text-[#13deb9] w-7 h-7 " />
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[18px] font-semibold text-[#2a3547]">
+                      James Johnson
+                    </p>
+                    <p className="text-[12px] font-normal text-[#2a3547]">
+                      online
+                    </p>
                   </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-[18px] font-semibold text-[#2a3547]">
-                  James Johnson
-
-                  </p>
-                  <p className="text-[12px] font-normal text-[#2a3547]">
-                    online
-                  </p>
+                <div className="flex items-center">
+                  <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full" />
+                  </Button>
+                  <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full" />
+                  </Button>
+                  <Button className="hover:rounded-full">
+                    <IoCallOutline className="w-7 h-7 hover:rounded-full" />
+                  </Button>
                 </div>
-              </div>
-              <div className="flex items-center">
-                    <Button className="hover:rounded-full">
-                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
-                    </Button>
-                    <Button className="hover:rounded-full">
-                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
-                    </Button>
-                    <Button className="hover:rounded-full">
-                    <IoCallOutline className="w-7 h-7 hover:rounded-full"/>
-                    </Button>
-              </div>
-              
-
               </div>
               <div className="overflow-auto h-[60vh] w-full p-6 ">
-              <div className="flex gap-3 ">
-                <div className="w-[30px] h-[30px] rounded-full relative">
-                  <img
-                    alt="profileImage"
-                    src="/images/user-1.jpg"
-                    className="rounded-full"
-                  />
-                 
+                <div className="flex gap-3 ">
+                  <div className="w-[30px] h-[30px] rounded-full relative">
+                    <img
+                      alt="profileImage"
+                      src="/images/user-1.jpg"
+                      className="rounded-full"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[12px] font-semibold text-[#2a3547] mb-2">
+                      James Johnson, 2 days ago
+                    </p>
+                    <p className="text-[14px] max-w-[320px] font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
+                      Marketing Manager
+                    </p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-[12px] font-semibold text-[#2a3547] mb-2">
-                  James Johnson, 2 days ago
-                  </p>
-                  <p className="text-[14px] max-w-[320px] font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
-                    Marketing Manager
+                <div className="float-right">
+                  <p className="text-[14px] max-w-[320px] text-left h-auto  font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
+                    Bacusihok bad feb uw tapcu necip pewizefek omupesez gandozan
+                    voviko
                   </p>
                 </div>
               </div>
-                    <div className="float-right">
-                    <p className="text-[14px] max-w-[320px] text-left h-auto  font-normal text-[#2a3547] bg-[#f2f6fa] mb-4 p-2 rounded-lg">
-                    Bacusihok bad feb uw tapcu necip pewizefek omupesez gandozan voviko
-                  </p>
+              <div className="absolute bottom-0 px-6 py-3 border-t z-50 bg-[#e9edef] w-full">
+                <div className="flex justify-between items-center gap-3">
+                    <div className="flex items-center gap-3 w-full">
+                        <div>
+                          <Button className="!min-w-[40px] hover:!rounded-full">
+                            <BsEmojiSmileFill className="text-[#969696] w-5 h-5"/>
+                          </Button>
+                        </div>
+                        <div className="w-full">
+                        <input
+                          className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-blue-400"
+                          type="text"
+                          placeholder="message"
+                          onChange={(e) => handleChange(e)}
+                        />
+                        </div>
+                    </div>
+                    <div>
+                      {!sendPop ? 
+                      <Button className="!min-w-[40px] hover:!rounded-full hover:!bg-white ">
+                          <BiSolidMicrophoneAlt className="w-6 h-6 text-[#969696]"/>
+                      </Button>
+                      :
+                      <Button className="!min-w-[40px] hover:!rounded-full hover:!bg-white">
+                          <AiOutlineSend className="w-6 h-6 text-[#969696]"/>
+                      </Button>
+                    }
                     </div>
 
+                </div>
+                
               </div>
-              <div className="absolute bottom-0 p-6 border-t z-50 bg-white w-full">
-sccdscsdcscs
-              </div>
-
             </div>
           </div>
         </div>
