@@ -36,258 +36,258 @@ function ChatComponent(props) {
 
 
 
-  function detectURL(message) {
-    var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-    return message.replace(urlRegex, function (urlMatch) {
-      return '<a href="' + urlMatch + '">' + urlMatch + '</a>';
-    });
-  }
+  // function detectURL(message) {
+  //   var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+  //   return message.replace(urlRegex, function (urlMatch) {
+  //     return '<a href="' + urlMatch + '">' + urlMatch + '</a>';
+  //   });
+  // }
   
-  function Title({ owner }) {
-    return (
-      <div className={"chatApp__convTitle"}>{owner}'s display</div>
-    );
-  }
+  // function Title({ owner }) {
+  //   return (
+  //     <div className={"chatApp__convTitle"}>{owner}'s display</div>
+  //   );
+  // }
   
-  function InputMessage({ isLoading, owner, ownerAvatar, sendMessageLoading, typing, resetTyping }) {
-    const [messageInput, setMessageInput] = useState('');
+  // function InputMessage({ isLoading, owner, ownerAvatar, sendMessageLoading, typing, resetTyping }) {
+  //   const [messageInput, setMessageInput] = useState('');
   
-    function handleSendMessage(event) {
-      event.preventDefault();
-      /* Disable sendMessage if the message is empty */
-      if (messageInput.length > 0) {
-        sendMessageLoading(owner, ownerAvatar, messageInput);
-        /* Reset input after send*/
-        setMessageInput('');
-      }
-    }
+  //   function handleSendMessage(event) {
+  //     event.preventDefault();
+  //     /* Disable sendMessage if the message is empty */
+  //     if (messageInput.length > 0) {
+  //       sendMessageLoading(owner, ownerAvatar, messageInput);
+  //       /* Reset input after send*/
+  //       setMessageInput('');
+  //     }
+  //   }
   
-    function handleTyping(event) {
-      /* Tell users when another user has at least started to write */
-      if (messageInput.length > 0) {
-        typing(owner);
-      } else {
-        /* When there is no more character, the user no longer writes */
-        resetTyping(owner);
-      }
-    }
+  //   function handleTyping(event) {
+  //     /* Tell users when another user has at least started to write */
+  //     if (messageInput.length > 0) {
+  //       typing(owner);
+  //     } else {
+  //       /* When there is no more character, the user no longer writes */
+  //       resetTyping(owner);
+  //     }
+  //   }
   
-    /* If the chatbox state is loading, loading class for display */
-    var loadingClass = isLoading ? 'chatApp__convButton--loading' : '';
-    let sendButtonIcon = <i className={"material-icons"}>send</i>;
+  //   /* If the chatbox state is loading, loading class for display */
+  //   var loadingClass = isLoading ? 'chatApp__convButton--loading' : '';
+  //   let sendButtonIcon = <i className={"material-icons"}>send</i>;
   
-    return (
-      <form onSubmit={handleSendMessage}>
-        <input
-          type="hidden"
-          value={owner}
-        />
-        <input
-          type="hidden"
-          value={ownerAvatar}
-        />
-        <input
-          type="text"
-          value={messageInput}
-          className={"chatApp__convInput"}
-          placeholder="Text message"
-          onChange={(e) => setMessageInput(e.target.value)}
-          onKeyDown={handleTyping}
-          onKeyUp={handleTyping}
-          tabIndex="0"
-        />
-        <div className={'chatApp__convButton ' + loadingClass} onClick={handleSendMessage}>
-          {sendButtonIcon}
-        </div>
-      </form>
-    );
-  }
+  //   return (
+  //     <form onSubmit={handleSendMessage}>
+  //       <input
+  //         type="hidden"
+  //         value={owner}
+  //       />
+  //       <input
+  //         type="hidden"
+  //         value={ownerAvatar}
+  //       />
+  //       <input
+  //         type="text"
+  //         value={messageInput}
+  //         className={"chatApp__convInput"}
+  //         placeholder="Text message"
+  //         onChange={(e) => setMessageInput(e.target.value)}
+  //         onKeyDown={handleTyping}
+  //         onKeyUp={handleTyping}
+  //         tabIndex="0"
+  //       />
+  //       <div className={'chatApp__convButton ' + loadingClass} onClick={handleSendMessage}>
+  //         {sendButtonIcon}
+  //       </div>
+  //     </form>
+  //   );
+  // }
   
-  function TypingIndicator({ owner, isTyping }) {
-    let typersDisplay = '';
-    let countTypers = 0;
+  // function TypingIndicator({ owner, isTyping }) {
+  //   let typersDisplay = '';
+  //   let countTypers = 0;
   
-    /* for each user writing messages in chatroom */
-    for (var key in isTyping) {
-      /* retrieve the name if it isn't the owner of the chatbox */
-      if (key !== owner && isTyping[key]) {
-        typersDisplay += ', ' + key;
-        countTypers++;
-      }
-    }
+  //   /* for each user writing messages in chatroom */
+  //   for (var key in isTyping) {
+  //     /* retrieve the name if it isn't the owner of the chatbox */
+  //     if (key !== owner && isTyping[key]) {
+  //       typersDisplay += ', ' + key;
+  //       countTypers++;
+  //     }
+  //   }
   
-    /* formatting text */
-    typersDisplay = typersDisplay.substr(1);
-    typersDisplay += countTypers > 1 ? ' are ' : ' is ';
+  //   /* formatting text */
+  //   typersDisplay = typersDisplay.substr(1);
+  //   typersDisplay += countTypers > 1 ? ' are ' : ' is ';
   
-    /* if at least one other person writes */
-    if (countTypers > 0) {
-      return (
-        <div className={"chatApp__convTyping"}>{typersDisplay} writing
-          <span className={"chatApp__convTypingDot"}></span>
-        </div>
-      );
-    }
+  //   /* if at least one other person writes */
+  //   if (countTypers > 0) {
+  //     return (
+  //       <div className={"chatApp__convTyping"}>{typersDisplay} writing
+  //         <span className={"chatApp__convTypingDot"}></span>
+  //       </div>
+  //     );
+  //   }
   
-    return (
-      <div className={"chatApp__convTyping"}></div>
-    );
-  }
+  //   return (
+  //     <div className={"chatApp__convTyping"}></div>
+  //   );
+  // }
   
-  function MessageList({ owner, messages }) {
-    return (
-      <div className={"chatApp__convTimeline"}>
-        {messages.slice(0).reverse().map(
-          messageItem => (
-            <MessageItem
-              key={messageItem.id}
-              owner={owner}
-              sender={messageItem.sender}
-              senderAvatar={messageItem.senderAvatar}
-              message={messageItem.message}
-            />
-          )
-        )}
-      </div>
-    );
-  }
+  // function MessageList({ owner, messages }) {
+  //   return (
+  //     <div className={"chatApp__convTimeline"}>
+  //       {messages.slice(0).reverse().map(
+  //         messageItem => (
+  //           <MessageItem
+  //             key={messageItem.id}
+  //             owner={owner}
+  //             sender={messageItem.sender}
+  //             senderAvatar={messageItem.senderAvatar}
+  //             message={messageItem.message}
+  //           />
+  //         )
+  //       )}
+  //     </div>
+  //   );
+  // }
   
-  function MessageItem({ owner, sender, senderAvatar, message }) {
-    /* message position formatting - right if I'm the author */
-    let messagePosition = owner === sender ? 'chatApp__convMessageItem--right' : 'chatApp__convMessageItem--left';
+  // function MessageItem({ owner, sender, senderAvatar, message }) {
+  //   /* message position formatting - right if I'm the author */
+  //   let messagePosition = owner === sender ? 'chatApp__convMessageItem--right' : 'chatApp__convMessageItem--left';
   
-    return (
-      <div className={"chatApp__convMessageItem " + messagePosition + " clearfix"}>
-        <img src={senderAvatar} alt={sender} className="chatApp__convMessageAvatar" />
-        <div className="chatApp__convMessageValue" dangerouslySetInnerHTML={{ __html: message }}></div>
-      </div>
-    );
-  }
+  //   return (
+  //     <div className={"chatApp__convMessageItem " + messagePosition + " clearfix"}>
+  //       <img src={senderAvatar} alt={sender} className="chatApp__convMessageAvatar" />
+  //       <div className="chatApp__convMessageValue" dangerouslySetInnerHTML={{ __html: message }}></div>
+  //     </div>
+  //   );
+  // }
   
-  function ChatBox({ owner, ownerAvatar, sendMessage, typing, resetTyping, messages, isTyping }) {
-    const [isLoading, setIsLoading] = useState(false);
+  // function ChatBox({ owner, ownerAvatar, sendMessage, typing, resetTyping, messages, isTyping }) {
+  //   const [isLoading, setIsLoading] = useState(false);
   
-    function sendMessageLoading(sender, senderAvatar, message) {
-      setIsLoading(true);
-      sendMessage(sender, senderAvatar, message);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 400);
-    }
+  //   function sendMessageLoading(sender, senderAvatar, message) {
+  //     setIsLoading(true);
+  //     sendMessage(sender, senderAvatar, message);
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 400);
+  //   }
   
-    return (
-      <div className={"chatApp__conv"}>
-        <Title owner={owner} />
-        <MessageList owner={owner} messages={messages} />
-        <div className={"chatApp__convSendMessage clearfix"}>
-          <TypingIndicator owner={owner} isTyping={isTyping} />
-          <InputMessage
-            isLoading={isLoading}
-            owner={owner}
-            ownerAvatar={ownerAvatar}
-            sendMessage={sendMessage}
-            sendMessageLoading={sendMessageLoading}
-            typing={typing}
-            resetTyping={resetTyping}
-          />
-        </div>
-      </div>
-    );
-  }
+  //   return (
+  //     <div className={"chatApp__conv"}>
+  //       <Title owner={owner} />
+  //       <MessageList owner={owner} messages={messages} />
+  //       <div className={"chatApp__convSendMessage clearfix"}>
+  //         <TypingIndicator owner={owner} isTyping={isTyping} />
+  //         <InputMessage
+  //           isLoading={isLoading}
+  //           owner={owner}
+  //           ownerAvatar={ownerAvatar}
+  //           sendMessage={sendMessage}
+  //           sendMessageLoading={sendMessageLoading}
+  //           typing={typing}
+  //           resetTyping={resetTyping}
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // }
   
-  function ChatRoom() {
-    const [messages, setMessages] = useState([
-      {
-        id: 1,
-        sender: 'Shun',
-        senderAvatar: 'https://i.pravatar.cc/150?img=32',
-        message: 'Hello 👋'
-      },
-      {
-        id: 2,
-        sender: 'Gabe',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'Hey!'
-      },
-      {
-        id: 3,
-        sender: 'Gabe',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'How are you?'
-      },
-      {
-        id: 4,
-        sender: 'Shun',
-        senderAvatar: 'https://i.pravatar.cc/150?img=32',
-        message: 'Great! It\'s been a while... 🙃'
-      },
-      {
-        id: 5,
-        sender: 'Gabe',
-        senderAvatar: 'https://i.pravatar.cc/150?img=56',
-        message: 'Indeed.... We\'re gonna have to fix that. 🌮🍻'
-      }
-    ]);
+  // function ChatRoom() {
+  //   const [messages, setMessages] = useState([
+  //     {
+  //       id: 1,
+  //       sender: 'Shun',
+  //       senderAvatar: 'https://i.pravatar.cc/150?img=32',
+  //       message: 'Hello 👋'
+  //     },
+  //     {
+  //       id: 2,
+  //       sender: 'Gabe',
+  //       senderAvatar: 'https://i.pravatar.cc/150?img=56',
+  //       message: 'Hey!'
+  //     },
+  //     {
+  //       id: 3,
+  //       sender: 'Gabe',
+  //       senderAvatar: 'https://i.pravatar.cc/150?img=56',
+  //       message: 'How are you?'
+  //     },
+  //     {
+  //       id: 4,
+  //       sender: 'Shun',
+  //       senderAvatar: 'https://i.pravatar.cc/150?img=32',
+  //       message: 'Great! It\'s been a while... 🙃'
+  //     },
+  //     {
+  //       id: 5,
+  //       sender: 'Gabe',
+  //       senderAvatar: 'https://i.pravatar.cc/150?img=56',
+  //       message: 'Indeed.... We\'re gonna have to fix that. 🌮🍻'
+  //     }
+  //   ]);
   
-    const [isTyping, setIsTyping] = useState({});
+  //   const [isTyping, setIsTyping] = useState({});
   
-    function sendMessage(sender, senderAvatar, message) {
-      setTimeout(() => {
-        let messageFormat = detectURL(message);
-        let newMessageItem = {
-          id: messages.length + 1,
-          sender: sender,
-          senderAvatar: senderAvatar,
-          message: messageFormat
-        };
-        setMessages([...messages, newMessageItem]);
-        resetTyping(sender);
-      }, 400);
-    }
+  //   function sendMessage(sender, senderAvatar, message) {
+  //     setTimeout(() => {
+  //       let messageFormat = detectURL(message);
+  //       let newMessageItem = {
+  //         id: messages.length + 1,
+  //         sender: sender,
+  //         senderAvatar: senderAvatar,
+  //         message: messageFormat
+  //       };
+  //       setMessages([...messages, newMessageItem]);
+  //       resetTyping(sender);
+  //     }, 400);
+  //   }
   
-    function typing(writer) {
-      if (!isTyping[writer]) {
-        setIsTyping(prevTyping => ({ ...prevTyping, [writer]: true }));
-      }
-    }
+  //   function typing(writer) {
+  //     if (!isTyping[writer]) {
+  //       setIsTyping(prevTyping => ({ ...prevTyping, [writer]: true }));
+  //     }
+  //   }
   
-    function resetTyping(writer) {
-      setIsTyping(prevTyping => ({ ...prevTyping, [writer]: false }));
-    }
+  //   function resetTyping(writer) {
+  //     setIsTyping(prevTyping => ({ ...prevTyping, [writer]: false }));
+  //   }
   
-    let users = {
-      0: { name: 'Shun', avatar: 'https://i.pravatar.cc/150?img=32' },
-      1: { name: 'Gabe', avatar: 'https://i.pravatar.cc/150?img=56' },
-      /* test with two other users :)
-      2: { name: 'Kate', avatar: 'https://i.pravatar.cc/150?img=47' },
-      3: { name: 'Patrick', avatar: 'https://i.pravatar.cc/150?img=14' },
-      */
-    };
+  //   let users = {
+  //     0: { name: 'Shun', avatar: 'https://i.pravatar.cc/150?img=32' },
+  //     1: { name: 'Gabe', avatar: 'https://i.pravatar.cc/150?img=56' },
+  //     /* test with two other users :)
+  //     2: { name: 'Kate', avatar: 'https://i.pravatar.cc/150?img=47' },
+  //     3: { name: 'Patrick', avatar: 'https://i.pravatar.cc/150?img=14' },
+  //     */
+  //   };
   
-    return (
-      <div className={"chatApp__room"}>
-        {Object.keys(users).map(function (key) {
-          var user = users[key];
-          return (
-            <ChatBox
-              key={key}
-              owner={user.name}
-              ownerAvatar={user.avatar}
-              sendMessage={sendMessage}
-              typing={typing}
-              resetTyping={resetTyping}
-              messages={messages}
-              isTyping={isTyping}
-            />
-          );
-        })}
-      </div>
-    );
-  }
+  //   return (
+  //     <div className={"chatApp__room"}>
+  //       {Object.keys(users).map(function (key) {
+  //         var user = users[key];
+  //         return (
+  //           <ChatBox
+  //             key={key}
+  //             owner={user.name}
+  //             ownerAvatar={user.avatar}
+  //             sendMessage={sendMessage}
+  //             typing={typing}
+  //             resetTyping={resetTyping}
+  //             messages={messages}
+  //             isTyping={isTyping}
+  //           />
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // }
   
-  setTimeout(() => {
-    render(<ChatRoom />, document.getElementById("chatApp"));
-  }, 400);
+  // setTimeout(() => {
+  //   render(<ChatRoom />, document.getElementById("chatApp"));
+  // }, 400);
 
 
   return (
@@ -529,12 +529,12 @@ function ChatComponent(props) {
 {/* =================================== */}
 
 
-<section id="chatApp" class="chatApp">
+{/* <section id="chatApp" class="chatApp">
 	<div class="chatApp__loaderWrapper">
 		<div class="chatApp__loaderText">Loading...</div>
 		<div class="chatApp__loader"></div>
 	</div>
-</section>
+</section> */}
 
 
 
