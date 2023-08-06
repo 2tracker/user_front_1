@@ -15,7 +15,8 @@ export const SendOtp = async({loginData})=>{
 export const LoginApi = ({loginData}) =>{
     return new Promise((resolve, reject) => {
         axios.post(`${BASE_URL}/login`,loginData).then((res)=>{
-             console.log('login response:-',res)
+               localStorage.setItem('user_id',JSON.stringify(res?.data?.data))
+             console.log('login response:-',res.data.data)
              return resolve (res.data)
         }).catch((err)=>{
              return reject (err)
