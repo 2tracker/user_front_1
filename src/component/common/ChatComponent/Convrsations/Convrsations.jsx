@@ -8,7 +8,7 @@ function Convrsation(conversation,currentUser) {
   const [user,setUser] = useState(null)
 
   useEffect(() => {
-    const friendID = conversation.conversation?.members.find(memberID => memberID !== conversation?.currentUser._id);
+    const friendID = conversation.conversation?.members.find(memberID => memberID !== conversation?.currentUser?._id);
     if (friendID) {
       const getUser = async () => {
         try {
@@ -23,7 +23,7 @@ function Convrsation(conversation,currentUser) {
     } else {
       console.log("No friend found in the conversation.");
     }
-  }, [conversation?.currentUser._id]);
+  }, [conversation?.currentUser?._id]);
 
     return (
       <div className="conversation">

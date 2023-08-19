@@ -3,7 +3,7 @@ import './App.css';
 import './style/globle.css';
 import Dashboard from './page/dashboard';
 import Myprofile from './page/myprofile';
-import Loginpage from './page/Loginpage';
+import Loginpage from './page/loginpage';
 import Taskpage from './page/taskpage';
 import CreateticketPage from './page/createticket';
 import Chats from './page/chats';

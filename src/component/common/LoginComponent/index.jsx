@@ -4,7 +4,7 @@ import OTPInput from "react-otp-input";
 import { LoginApi, SendOtp } from "../../../auth/userApi";
 import toast, { Toaster } from 'react-hot-toast';
 
-function Login() {
+function LoginComponent() {
   const [loginData, setLoginData] = useState([]);
   const [otpPage, setOtpPage] = useState(false);
   const [otp, setOtp] = useState("");
@@ -173,4 +173,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginComponent;

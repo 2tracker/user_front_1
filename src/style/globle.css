@@ -117,3 +117,6 @@
   -ms-overflow-style: none;
 }
 
+.chatMenuWrapper input{
+  padding: 5px;
+}
