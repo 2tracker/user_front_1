@@ -221,6 +221,13 @@ function ChatComponent(props) {
                           autoFocusSearch={false}
                         />
                       </div>
+                      {selectedEmoji ? (
+                            <Emoji
+                              unified={selectedEmoji}
+                              emojiStyle={EmojiStyle.APPLE}
+                              size={22}
+                            />
+                          ) : null}
                       <textarea
                         className="chatMessageInput rounded-lg focus:outline-none"
                         placeholder="Write something"
@@ -230,15 +237,7 @@ function ChatComponent(props) {
                         }}
                         defaultValue={newMessages}
                         value={
-                          newMessages ? (
-                            newMessages
-                          ) : selectedEmoji ? (
-                            <Emoji
-                              unified={selectedEmoji}
-                              emojiStyle={EmojiStyle.APPLE}
-                              size={22}
-                            />
-                          ) : null
+                          newMessages 
                         }
                       ></textarea>
                       {typemsg ? (
