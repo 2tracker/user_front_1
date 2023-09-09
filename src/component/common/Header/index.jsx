@@ -12,11 +12,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import CountdownTimer from "../CountdownTimer";
 
 function Header({ setSidebarOpen, sidebarOpen }) {
   const [cartPopup, setCartPopup] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
+  const [startTimer, setStartTimer] = useState(false);
 
   const [notificationOpen, setNotificationOpen] = useState(null);
   const open = Boolean(anchorEl);
@@ -41,6 +43,10 @@ function Header({ setSidebarOpen, sidebarOpen }) {
   const handleClosePopup = () => {
     setOpenPopup(false);
   };
+  const handleTimeAgreePopup = () => {
+    setOpenPopup(false);
+    setStartTimer(true)
+  };
 
   return (
     <>
@@ -62,7 +68,11 @@ function Header({ setSidebarOpen, sidebarOpen }) {
         </div>
         <div className="flex gap-x-4 items-center">
           <div className="time-button">
-            <Button className="!border " onClick={handleClickOpen}>Start</Button>
+          {!startTimer ?
+            <Button className="!border" onClick={handleClickOpen}>Start</Button>
+            :
+            <CountdownTimer/>
+          }
             <Dialog
         open={openPopup}
         onClose={handleClosePopup}
@@ -80,12 +90,13 @@ function Header({ setSidebarOpen, sidebarOpen }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClosePopup}>Disagree</Button>
-          <Button onClick={handleClosePopup} autoFocus>
+          <Button onClick={handleTimeAgreePopup} autoFocus>
             Agree
           </Button>
         </DialogActions>
       </Dialog>
           </div>
+       
 
 
 
@@ -158,7 +169,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
         PaperProps={{
           elevation: 0,
           className:
-            "p-8 overflow-visible profile-popup w-1/6 h-auto !max-h-auto !overflow-auto",
+            "p-8 overflow-visible profile-popup w-1/5 h-auto !max-h-auto !overflow-auto",
           sx: {
             overflow: "visible",
             filter: "drop-shadow(0px 1px 5px rgba(0,0,0,0.20))",
@@ -262,7 +273,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
         PaperProps={{
           elevation: 0,
           className:
-            "px-8 py-4 overflow-visible profile-popup w-1/6 h-auto !max-h-auto !overflow-auto !top-[65px] !left-[80%]",
+            "px-8 py-4 overflow-visible profile-popup w-[18%] h-auto !max-h-auto !overflow-auto !top-[65px] !left-[80%]",
           sx: {
             overflow: "visible",
             filter: "drop-shadow(0px 1px 5px rgba(0,0,0,0.20))",
