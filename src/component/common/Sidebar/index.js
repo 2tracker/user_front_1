@@ -55,6 +55,10 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                       menudata?.spacing ? "mt-9" : "mt-2"
                     } ${sidebarOpen ? "w-full" : 'w-[38px]'}`}
                   >
+                       <Link
+                      to={`/${menudata?.linkpage}`}
+                      className={`text-[14px] font-medium flex-1 duration-200 `}
+                    >
                     {menudata?.icon ? (
                       <span className="text-2xl pr-2 block float-left">
                         {menudata?.icon ? menudata?.icon : <RiDashboardFill />}
@@ -62,10 +66,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     ) : (
                       ""
                     )}
-                    <Link
-                      to={`/${menudata?.linkpage}`}
-                      className={`text-[14px] font-medium flex-1 duration-200 `}
-                    >
+                 
                       {sidebarOpen ? menudata?.title : ""}
                     </Link>
 

@@ -11,6 +11,7 @@ import Highcharts from 'highcharts'
 import { HighchartsReact } from "highcharts-react-official";
 import { GetDOB } from "../../../auth/dashboardApi";
 import moment from 'moment';
+import { Button } from "@mui/material";
 
 
 
@@ -108,6 +109,9 @@ useEffect(()=>{
                   </TableBody>
                 </Table>
               </TableContainer>
+            </div>
+            <div className="text-right">
+              <Button className="rounded-md">View All</Button>
             </div>
           </div>
           <div className="col-span-3 flex flex-col gap-4 max-[834px]:col-span-4  max-[576px]:col-span-1">

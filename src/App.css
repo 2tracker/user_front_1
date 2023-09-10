@@ -1,6 +1,7 @@
 @import url('../src/style/Profile/Profile.css');
 @import url('../src/style/tableProject/tableProject.css');
 @import url('../src/style/countdown/countdown.css');
+@import url('../src/style/loader/loader.css');
 
 .App {
   text-align: center;
