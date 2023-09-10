@@ -3,14 +3,14 @@ import './App.css';
 import './style/globle.css';
 import Dashboard from './page/dashboard';
 import Myprofile from './page/myprofile';
-import Loginpage from './page/loginpage';
+import Loginpage from './page/Loginpage';
 import Taskpage from './page/taskpage';
 import CreateticketPage from './page/createticket';
 import Chats from './page/chats';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
       {/* <header className="App-header"> */}
 
     <Routes>

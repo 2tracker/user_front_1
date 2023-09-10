@@ -29,16 +29,16 @@ function CountdownTimer() {
   const seconds = timeRemaining % 60;
 
   return (
-    <div className='flex items-center gap-3 border rounded-[4px] border-black px-2 py-1'>
-      <div onClick={() => setStartTime(!startTime)} className='border p-1 rounded-md border-black'>
+    <div className='flex shadow-2xl items-center gap-2 border rounded-[8px] border-[#fdede8]-500 px-5 py-2'>
+      <div onClick={() => setStartTime(!startTime)} className='cursor-pointer p-1 rounded-md border-black'>
           {!startTime ? 
           
-          <BsPlayCircle className="w-6"/>
+          <BsPlayCircle className="w-6 border-none"/>
           :
-          <AiOutlinePauseCircle className="w-6"/>
+          <AiOutlinePauseCircle className="w-6 border-none"/>
           }
       </div>
-      <div>
+      <div className='text-red-500'>
         {hours.toString().padStart(2, '0')}:
         {minutes.toString().padStart(2, '0')}:
         {seconds.toString().padStart(2, '0')}
