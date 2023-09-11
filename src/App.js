@@ -7,6 +7,7 @@ import Loginpage from './page/loginpage';
 import Taskpage from './page/taskpage';
 import CreateticketPage from './page/createticket';
 import Chats from './page/chats';
+import Birthdatlist from './page/birthdatlist';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/task' element={<Taskpage/>}/>
         <Route path='/ticketcreate' element={<CreateticketPage/>}/>
         <Route path='/chats' element={<Chats/>}/>
+        <Route path='/birthdaylist' element={<Birthdatlist/>}/>
 
       </Routes>
 

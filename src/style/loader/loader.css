@@ -7,7 +7,7 @@
     left: 50%;
     rotate: (360deg);
     transform: translate(-50%, -50%);
-    border: 5px solid #e9218c;
+    border: 5px solid rgb(96 165 250 );
     border-radius: 50%;
     border-left-color: transparent;
     animation-name: spin;
@@ -22,7 +22,7 @@
     position: absolute;
     width: 160%;
     height: 160%;
-    border: 5px solid #2490fd;
+    border: 5px solid #b9cefa;
     border-radius: 50%;
     border-right-color: transparent;
     left: -13px;
@@ -40,7 +40,7 @@
     position: absolute;
     width: 200%;
     height: 200%;
-    border: 5px solid #fcb100;
+    border: 5px solid #5d87ff;
     border-radius: 50%;
     border-left-color: transparent;
     left: -20px;

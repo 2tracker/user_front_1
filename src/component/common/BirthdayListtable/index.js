@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 
 
-function ProjectTable() {
+function BirthdayListTable() {
   const [age, setAge] = React.useState("");
   const [getDob,setGeDob] = React.useState([])
 
@@ -47,8 +47,8 @@ useEffect(()=>{
   return (
     <div className="container mx-auto">
       <div className="p-6">
-        <div className="grid grid-cols-12 max-[576px]:grid-cols-1  gap-6">
-          <div className="col-span-9  rounded-lg border p-[30px] max-[834px]:col-span-8 max-[576px]:col-span-1">
+        <div className=" gap-6">
+          <div className="rounded-lg border p-[30px] ">
             <div className="flex items-center justify-between pb-5">
               <h5 className="text-[18px] font-semibold text-left">
                 Birthdays
@@ -113,68 +113,15 @@ useEffect(()=>{
             </div>
             <div>
 
+           
           </div>
-            <Link to={"/birthdaylist"} className="bg-blue-500 px-5 py-2 inline-flex mt-4 w-auto rounded-lg text-white">
-              <Button className=" hover:rounded-lg  hover:inline-flex !text-white !p-0 !h-auto"> 
-              View All
-              </Button>
-              </Link>
           </div>
          
-          <div className="col-span-3 flex flex-col gap-4 max-[834px]:col-span-4  max-[576px]:col-span-1">
-            <div className="p-6 border rounded-lg text-left h-auto">
-              <div className="grid grid-cols-2 items-center max-[1440px]:grid-cols-1">
-                <div>
-                  <h5 className="text-[18px] font-semibold text-left">
-                    Yearly Breakup
-                  </h5>
-                  
-                    <div className="pt-6 ">
-                      <h4 className="text-[24px] font-semibold">$36,358</h4>
-                      <div className="pt-1 flex items-center gap-2">
-                        <img className="bg-[#e6fffa] rounded-full" src="/images/grow-up.svg"/>
-                        <h6 className="text-[14px] font-semibold">+9%</h6>
-                        <h6 className="text-[14px] font-normal">last year</h6>
-                      </div>
-                      <div className="flex items-center gap-5 mt-10">
-                        <div className="flex items-center">
-                              <GoDotFill className="text-[#5d87ff]"/> <p className="text-[14px] ml-2 text-[#2a3547]">2023</p>
-                        </div>
-                        <div className="flex items-center">
-                              <GoDotFill className="text-[#ecf2ff]"/> <p className="text-[14px] ml-2 text-[#2a3547]">2023</p>
-                        </div>
 
-                      </div>
-                    </div>
-             
-                </div>
-                <div className="pie-chart-table h-full">
-                <HighchartsReact
-                 highcharts={Highcharts}
-                options={options}/>
-
-                </div>
-              </div>
-            </div>
-            <div className="p-6 border rounded-lg text-left h-full">
-              <div className="grid grid-cols-2">
-                <div>
-                  <h5 className="text-[18px] font-semibold text-left">
-                    Yearly Breakup
-                  </h5>
-                  <h4 className="text-[24px]">$36,358</h4>
-                  <div>
-                  </div>
-
-                  <div>Chart</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default ProjectTable;
+export default BirthdayListTable;
