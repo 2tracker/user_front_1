@@ -215,19 +215,19 @@ function ChatComponent(props) {
                       ))}
                     </div>
                     <div className="chatBoxBottom absolute bottom-0 p-2.5 w-full h-[50px] bg-[#f0f2f5] left-0">
-                      <div>
+                      {/* <div>
                         <EmojiPicker
                           onEmojiClick={onClick}
                           autoFocusSearch={false}
                         />
-                      </div>
-                      {selectedEmoji ? (
+                      </div> */}
+                      {/* {selectedEmoji ? (
                             <Emoji
                               unified={selectedEmoji}
                               emojiStyle={EmojiStyle.APPLE}
                               size={22}
                             />
-                          ) : null}
+                          ) : null} */}
                       <textarea
                         className="chatMessageInput rounded-lg focus:outline-none"
                         placeholder="Write something"

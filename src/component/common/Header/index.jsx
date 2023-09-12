@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
 import { Box, Button, Divider, Menu, MenuItem } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NotificationData } from "../../../utils/alljsonfile/notificationData";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -19,6 +19,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
+  const navigate = useNavigate();
 
   const [notificationOpen, setNotificationOpen] = useState(null);
   const open = Boolean(anchorEl);
@@ -46,6 +47,11 @@ function Header({ setSidebarOpen, sidebarOpen }) {
   const handleTimeAgreePopup = () => {
     setOpenPopup(false);
     setStartTimer(true)
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("user_id");
+    navigate("/");
   };
 
   return (
@@ -257,7 +263,7 @@ function Header({ setSidebarOpen, sidebarOpen }) {
         </div>
 
         <div className="mt-2">
-          <button className="w-full p-2 border border-[#5d87ff] rounded-md text-[16px] text-[#5d87ff]  hover:text-white hover:bg-[#5d87ff] hover:border-[#5d87ff] duration-300">
+          <button onClick={() => handleLogout()} className="w-full p-2 border border-[#5d87ff] rounded-md text-[16px] text-[#5d87ff]  hover:text-white hover:bg-[#5d87ff] hover:border-[#5d87ff] duration-300">
             Logout
           </button>
         </div>
