@@ -8,7 +8,6 @@ function Loginpage(  ) {
         <div>
 
             <LoginComponent/>
-            <LoaderSpin/>
         </div>
     );
 }

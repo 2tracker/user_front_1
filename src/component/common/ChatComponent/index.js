@@ -26,6 +26,7 @@ function ChatComponent(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [typemsg, setTypeMsg] = useState(false);
   const [selectedEmoji, setSelectedEmoji] = useState("");
+  const [emojiSelect,setEmojiSelect] = useState(false)
 
   const [arrivalMessages, setArrivalMessages] = useState(null);
   const socket = useRef(io());
@@ -64,7 +65,8 @@ function ChatComponent(props) {
   //   })
   // },[socket])
 
-  function onClick(emojiData: EmojiClickData, event: MouseEvent) {
+  function onClick(emojiData, event) {
+    console.log(emojiData,"emojidata");
     setSelectedEmoji(emojiData.unified);
   }
 
@@ -139,7 +141,9 @@ function ChatComponent(props) {
       setTypeMsg(false);
     }
   };
-
+  const handleClickEmoji = () =>{
+    setEmojiSelect(true)
+  }
   return (
     <div className="container mx-auto">
       <div className="p-6">
@@ -219,13 +223,15 @@ function ChatComponent(props) {
                         <EmojiPicker
                           onEmojiClick={onClick}
                           autoFocusSearch={false}
+                        
                         />
-                      </div> */}
-                      {/* {selectedEmoji ? (
+                      </div>
+                      {emojiSelect ? (
                             <Emoji
                               unified={selectedEmoji}
                               emojiStyle={EmojiStyle.APPLE}
                               size={22}
+                              onClick={handleClickEmoji}
                             />
                           ) : null} */}
                       <textarea

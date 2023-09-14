@@ -48,10 +48,10 @@ useEffect(()=>{
     <div className="container mx-auto">
       <div className="p-6">
         <div className="grid grid-cols-12 max-[576px]:grid-cols-1  gap-6">
-          <div className="col-span-9  rounded-lg border p-[30px] max-[834px]:col-span-8 max-[576px]:col-span-1">
+          <div className="col-span-12  rounded-lg border p-[30px] max-[834px]:col-span-8 max-[576px]:col-span-1">
             <div className="flex items-center justify-between pb-5">
               <h5 className="text-[18px] font-semibold text-left">
-                Birthdays
+                Birthday List
               </h5>
             </div>
             <div>
@@ -111,17 +111,13 @@ useEffect(()=>{
                 </Table>
               </TableContainer>
             </div>
-            <div>
-
-          </div>
-            <Link to={"/birthdaylist"} className="bg-blue-500 px-5 py-2 inline-flex mt-4 w-auto rounded-lg text-white">
-              <Button className=" hover:rounded-lg  hover:inline-flex !text-white !p-0 !h-auto"> 
-              View All
-              </Button>
+            <div className="text-center">
+              <Link to={'/birthdaylist'}>
+              <Button className="rounded-md">View All</Button>
               </Link>
+            </div>
           </div>
-         
-          <div className="col-span-3 flex flex-col gap-4 max-[834px]:col-span-4  max-[576px]:col-span-1">
+          {/* <div className="col-span-3 flex flex-col gap-4 max-[834px]:col-span-4  max-[576px]:col-span-1">
             <div className="p-6 border rounded-lg text-left h-auto">
               <div className="grid grid-cols-2 items-center max-[1440px]:grid-cols-1">
                 <div>
@@ -170,7 +166,7 @@ useEffect(()=>{
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
