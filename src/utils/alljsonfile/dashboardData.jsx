@@ -34,14 +34,11 @@ export const DashboardMenus = [
 { title: " Setting" , icon: <AiFillSetting className="w-[22px] h-[22px]"/> , linkpage : "setting"},
 
 {
-  title: "Users",
+  title: "My Profile",
   icon: <FiUsers className="w-[22px] h-[22px]"/>,
-  submenuUser: true,
-  UsersubmenuItems: [
-    {title: "My Profile", linkpage : "myprofile"},
-  
-  { title: " Logout" , icon: <AiOutlineLogout className="w-[22px] h-[22px]"/> },
-  ],
+  linkpage : "myprofile",
+
 },
+ { title: " Logout" , icon: <AiOutlineLogout className="w-[22px] h-[22px]"/> },
 
 ];

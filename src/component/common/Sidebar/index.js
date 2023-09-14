@@ -8,7 +8,6 @@ import { Link, useLocation } from "react-router-dom";
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const [submenuOpen, setSubmenuOpen] = useState(false);
   const [submenuEventOpen, setSubmenuEventOpen] = useState(false);
-  const [submenuUserOpen, setSubmenuUserOpen] = useState(false);
   const location = useLocation();
 
 
@@ -90,14 +89,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         }}
                       />
                     )}
-                    {menudata?.submenuUser && sidebarOpen && (
-                      <BsChevronDown
-                        className={`${submenuUserOpen && "rotate-180"}`}
-                        onClick={() => {
-                          setSubmenuUserOpen(!submenuUserOpen);
-                        }}
-                      />
-                    )}
+                   
                   </li>
                   {/* ===== Task Sub ======== */}
                   {menudata?.submenu && submenuOpen && sidebarOpen && (
@@ -170,37 +162,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     )}
 
                   {/* ===== User Sub ======== */}
-                  {menudata?.submenuUser && submenuUserOpen && sidebarOpen && (
-                    <ul>
-                      {menudata?.UsersubmenuItems?.map((submenuItem, index) => {
-                        return (
-                          <>
-                            <Link to={`/${submenuItem?.linkpage}`}>
-                              <li
-                                key={index}
-                                className={`text-[#2a3547] text-[14px] max-[771px]:px-4 font-medium flex items-center gap-x-2 cursor-pointer p-2 hover:bg-[#ecf2ff] hover:text-[#5d87ff] rounded-md  ${
-                                  sidebarOpen ? "px-5" : "px-1.5"
-                                }`}
-                              >
-                                {submenuItem?.icon ? (
-                                  <span className="text-2xl block float-left">
-                                    {submenuItem?.icon ? (
-                                      submenuItem?.icon
-                                    ) : (
-                                      <RiDashboardFill />
-                                    )}
-                                  </span>
-                                ) : (
-                                  ""
-                                )}
-                                {submenuItem?.title}
-                              </li>
-                            </Link>
-                          </>
-                        );
-                      })}
-                    </ul>
-                  )}
+       
 
                   <ul>
                     {menudata?.homesubmenu?.map((submenuItem, index) => {
