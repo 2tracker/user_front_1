@@ -10,7 +10,7 @@ function Chats() {
       // Simulate loading data (you can replace this with your actual data fetching logic)
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 500);
     }, []);
     return (
         <>

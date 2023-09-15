@@ -16,7 +16,7 @@ import EmojiPicker, {
   EmojiClickData,
 } from "emoji-picker-react";
 
-const User_URL = "http://localhost:9090";
+const User_URL = "https://tracker-product.onrender.com";
 
 function ChatComponent(props) {
   const [conversation, setConversation] = useState([]);
@@ -220,7 +220,7 @@ function ChatComponent(props) {
                     </div>
                     <div className="chatBoxBottom absolute bottom-0 p-2.5 w-full h-[50px] bg-[#f0f2f5] left-0">
                       {/* <div>
-                        <EmojiPicker
+                        <EmojiPicker  
                           onEmojiClick={onClick}
                           autoFocusSearch={false}
                         

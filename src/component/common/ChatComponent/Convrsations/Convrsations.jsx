@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios'
 import './convrsations.css'
 
-const User_URL = 'http://localhost:9090'
+const User_URL = 'https://tracker-product.onrender.com'
 
 function Convrsation(conversation,currentUser) {
   const [user,setUser] = useState(null)
